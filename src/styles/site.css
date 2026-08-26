@@ -749,6 +749,193 @@ a.dcard h3{color:var(--ink)}
 .placeholder h1{margin-bottom:.35em}
 .placeholder p{color:var(--muted);max-width:var(--prose)}
 
+/* ============================================================
+   9.5 visual-first components (Bento, Matrix, Skills, Badges)
+   ============================================================ */
+
+/* Metric Impact Strip */
+.metric-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  margin:28px 0 36px;padding:20px 24px;
+  background:var(--bg-raise);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+}
+.metric-strip .m-cell{display:flex;flex-direction:column;gap:4px}
+.metric-strip .m-num{
+  font-family:var(--display);font-size:clamp(1.7rem,2.4vw,2.2rem);
+  font-weight:700;color:var(--accent-ink);line-height:1.1;letter-spacing:-.02em;
+}
+.metric-strip .m-label{font-size:.82rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+/* Dual-Pillar Comparison Matrix (Bank vs Solo Founder) */
+.dual-matrix{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+  margin:28px 0 20px;
+}
+.dual-col{
+  background:var(--bg-raise);border:1px solid var(--line);
+  border-radius:18px;padding:26px 24px;box-shadow:var(--shadow);
+  transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease,border-color .22s ease;
+  display:flex;flex-direction:column;gap:18px;
+}
+.dual-col:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:color-mix(in srgb, var(--accent) 45%, transparent)}
+.dual-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.dual-title{font-family:var(--display);font-size:1.22rem;font-weight:700;margin:0;color:var(--ink)}
+.dual-period{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.dual-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 10px;border-radius:999px;font-size:.78rem;font-weight:700;
+  background:var(--accent-soft);color:var(--accent-ink);border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.dual-rows{display:flex;flex-direction:column;gap:14px;flex:1}
+.dual-row{display:grid;grid-template-columns:105px 1fr;gap:12px;font-size:.88rem;line-height:1.45}
+.dual-k{font-weight:600;color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.dual-v{color:var(--ink)}
+.dual-v strong{color:var(--ink);font-weight:700}
+.dual-synthesis{
+  margin:20px 0 36px;padding:18px 24px;
+  background:color-mix(in srgb, var(--accent) 8%, var(--bg-raise));
+  border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius:14px;display:flex;align-items:center;gap:14px;
+}
+.dual-synthesis .syn-icon{
+  width:36px;height:36px;border-radius:10px;background:var(--accent);
+  color:#fff;display:grid;place-items:center;flex-shrink:0;font-size:1.1rem;
+}
+.dual-synthesis p{margin:0;font-size:.95rem;line-height:1.48;color:var(--ink)}
+
+/* Recruiter Fast-Pass / Hiring Cheat Sheet */
+.cheat-sheet{
+  width:100%;border-collapse:separate;border-spacing:0;
+  margin:20px 0;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;background:var(--bg-raise);box-shadow:var(--shadow);
+}
+.cheat-sheet th,.cheat-sheet td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:.9rem}
+.cheat-sheet th{background:color-mix(in srgb, var(--bg-raise) 70%, var(--line));font-weight:700;color:var(--ink);font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+.cheat-sheet tr:last-child td{border-bottom:none}
+.cheat-sheet tr:hover td{background:color-mix(in srgb, var(--accent) 5%, var(--bg-raise))}
+
+/* Categorized Skill Matrix */
+.skill-matrix{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:24px 0 34px}
+.skill-cat{
+  background:var(--bg-raise);border:1px solid var(--line);
+  border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:12px;
+}
+.skill-cat-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.skill-cat-title{font-family:var(--display);font-size:1.02rem;font-weight:700;margin:0;color:var(--ink);display:flex;align-items:center;gap:8px}
+.skill-chips{display:flex;flex-wrap:wrap;gap:7px}
+.skill-chip{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:5px 11px;border-radius:8px;font-size:.84rem;font-weight:500;
+  background:var(--bg);border:1px solid var(--line-strong);color:var(--ink);
+  transition:border-color .16s ease, transform .16s ease, background .16s ease;
+}
+.skill-chip:hover{border-color:var(--accent);transform:translateY(-1px);background:var(--accent-soft)}
+.skill-chip.hi{
+  font-weight:700;border-color:color-mix(in srgb, var(--accent) 60%, transparent);
+  background:color-mix(in srgb, var(--accent) 12%, var(--bg));
+  color:var(--accent-ink);
+}
+
+/* Feature & Role Pills */
+.badge-pill{
+  display:inline-flex;align-items:center;gap:6px;padding:3px 9px;
+  border-radius:999px;font-size:.76rem;font-weight:700;
+  background:var(--accent-soft);color:var(--accent-ink);border:1px solid color-mix(in srgb, var(--accent) 26%, transparent);
+}
+.badge-pill.success{background:rgba(46,125,50,.1);color:#2E7D32;border-color:rgba(46,125,50,.24)}
+.badge-pill.warning{background:rgba(230,81,0,.1);color:#E65100;border-color:rgba(230,81,0,.24)}
+:root[data-theme="dark"] .badge-pill.success{background:rgba(74,222,128,.14);color:#4ADE80;border-color:rgba(74,222,128,.3)}
+:root[data-theme="dark"] .badge-pill.warning{background:rgba(251,146,60,.14);color:#FB923C;border-color:rgba(251,146,60,.3)}
+
+.feature-pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.feature-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 9px;border-radius:6px;font-size:.78rem;font-weight:600;
+  background:var(--bg-raise);border:1px solid var(--line);color:var(--ink);
+}
+
+/* Decision & Tradeoff Matrix Table */
+.decision-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  margin:20px 0;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;background:var(--bg-raise);box-shadow:var(--shadow);
+}
+.decision-table th,.decision-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:.88rem;vertical-align:top}
+.decision-table th{background:color-mix(in srgb, var(--bg-raise) 70%, var(--line));font-weight:700;color:var(--ink);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+.decision-table tr:last-child td{border-bottom:none}
+
+/* Visual Before / After Pill Container */
+.before-after-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0}
+.ba-card{
+  padding:16px 18px;border-radius:12px;border:1px solid var(--line);
+  background:var(--bg-raise);display:flex;flex-direction:column;gap:8px;font-size:.88rem;
+}
+.ba-card.before{border-color:rgba(239,68,68,.3);background:color-mix(in srgb, #EF4444 6%, var(--bg-raise))}
+.ba-card.after{border-color:rgba(34,197,94,.3);background:color-mix(in srgb, #22C55E 6%, var(--bg-raise))}
+.ba-tag{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.ba-card.before .ba-tag{color:#DC2626}
+.ba-card.after .ba-tag{color:#16A34A}
+:root[data-theme="dark"] .ba-card.before .ba-tag{color:#F87171}
+:root[data-theme="dark"] .ba-card.after .ba-tag{color:#4ADE80}
+
+/* Visual Step Pipeline / Roadmap */
+.step-pipeline{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin:22px 0 28px;
+}
+.step-item{
+  background:var(--bg-raise);border:1px solid var(--line);border-radius:12px;
+  padding:16px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;gap:6px;
+}
+.step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;background:var(--accent);
+  color:#fff;font-size:.82rem;font-weight:700;margin-bottom:4px;
+}
+.step-title{font-weight:700;font-size:.94rem;color:var(--ink)}
+.step-desc{font-size:.84rem;color:var(--muted);line-height:1.4}
+
+/* Visual Diagram Wrapper */
+.diagram-box{
+  background:var(--bg-raise);border:1px solid var(--line);
+  border-radius:16px;padding:24px;margin:22px 0;box-shadow:var(--shadow);
+}
+.diagram-box svg{width:100%;height:auto;display:block}
+
+/* Concept Bridge */
+.concept-bridge{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:var(--bg-raise);border:1px solid var(--line);border-radius:14px;
+  padding:18px 22px;margin:20px 0;box-shadow:var(--shadow);
+}
+.bridge-node{flex:1;text-align:center;padding:8px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
+.bridge-arrow{color:var(--accent);font-size:1.4rem;font-weight:700;flex-shrink:0}
+
+/* Mini Card Grid (for writing/articles) */
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.mini-card{
+  background:var(--bg-raise);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;
+  transition:transform .2s ease,border-color .2s ease;color:var(--ink);
+}
+.mini-card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent-ink)}
+.mini-card h4{margin:0;font-size:.95rem;font-weight:700;line-height:1.3}
+.mini-card p{margin:0;font-size:.82rem;color:var(--muted);line-height:1.35}
+
+/* Status Radar Bento */
+.status-radar{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  margin:20px 0;
+}
+.radar-card{
+  background:var(--bg-raise);border:1px solid var(--line);border-radius:14px;
+  padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;
+}
+.radar-card .r-tag{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink)}
+.radar-card .r-val{font-size:.94rem;color:var(--ink);line-height:1.4;margin:0}
+
 /* routes */
 .route{display:none}
 .route.active{display:block}
@@ -775,7 +962,10 @@ a.dcard h3{color:var(--ink)}
   .case-hero{grid-template-columns:1fr;padding-left:clamp(20px,5vw,32px);padding-right:clamp(20px,5vw,32px);min-height:0;gap:8px}
   .case-hero-text{padding:44px 0 12px}
   .case-hero-text .lede{max-width:none}
-  .readers,.dcards,.dcards.cols2,.railgrid,.sec-split{grid-template-columns:1fr}
+  .readers,.dcards,.dcards.cols2,.railgrid,.sec-split,.dual-matrix,.skill-matrix,.metric-strip,.step-pipeline,.mini-grid,.status-radar,.before-after-grid{grid-template-columns:1fr}
+  .dual-row{grid-template-columns:90px 1fr}
+  .concept-bridge{flex-direction:column;gap:8px}
+  .bridge-arrow{transform:rotate(90deg)}
   .railfig{margin-top:26px}
   .shots{grid-template-columns:repeat(3,1fr);gap:14px}
   .nums{grid-template-columns:repeat(3,1fr);gap:18px}

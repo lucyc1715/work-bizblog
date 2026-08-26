@@ -29,9 +29,32 @@ import Base from "../layouts/Base.astro";
 
   <div class="wrap section">
     <div class="readers">
-      <div class="rcard spot rv"><h3>If you are hiring</h3><p>Taiwanese national, Critical Skills permit route, available in <span data-site="notice">8 to 12 weeks</span>, open to travel and on-site.</p></div>
-      <div class="rcard spot rv"><h3>If you are not technical</h3><p>I shipped a SaaS alone on iOS, Android and web. I led nine engineers and five vendors inside a bank.</p></div>
-      <div class="rcard spot rv"><h3>If you are an engineer</h3><p>Three payment rails normalised into one entitlement schema, where conflicts resolve to the highest tier, not last write.</p></div>
+      <div class="rcard spot rv">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <span class="badge-pill success">🏢 Recruiter &amp; HR</span>
+          <span style="font-size:.76rem;color:var(--muted)">Hiring</span>
+        </div>
+        <h3>If you are hiring</h3>
+        <p>Taiwanese national, <strong>Critical Skills permit route (CSEP)</strong>, available in <span data-site="notice">8 to 12 weeks</span>, open to customer travel &amp; on-site.</p>
+      </div>
+
+      <div class="rcard spot rv">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <span class="badge-pill">💡 Product &amp; VP</span>
+          <span style="font-size:.76rem;color:var(--muted)">0-to-1</span>
+        </div>
+        <h3>If you are not technical</h3>
+        <p>Shipped a production SaaS alone on <strong>iOS, Android &amp; web</strong>. Led <strong>9 engineers and 5 vendors</strong> inside a licensed digital bank.</p>
+      </div>
+
+      <div class="rcard spot rv">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <span class="badge-pill">⚙️ Tech Lead &amp; Architect</span>
+          <span style="font-size:.76rem;color:var(--muted)">System</span>
+        </div>
+        <h3>If you are an engineer</h3>
+        <p>Three payment rails normalised into one entitlement schema, where conflicts resolve to the <strong>highest tier, not last write</strong>.</p>
+      </div>
     </div>
   </div>
 
@@ -120,11 +143,16 @@ import Base from "../layouts/Base.astro";
           <p class="meta">Founder &middot; 2025 to now</p>
           <h3>Course Kit</h3>
           <p class="d">A session-tracking app for freelance coaches, tutors, and yoga teachers.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">Flutter iOS &amp; Android</span>
+            <span class="feature-pill">3 Payment Rails</span>
+            <span class="feature-pill">2-Way Sync</span>
+            <span class="feature-pill">350+ Users</span>
+          </div>
           <ul class="scard-points">
             <li>Both sides confirm &mdash; same record on both ends</li>
             <li>Students check the count themselves &mdash; fewer &ldquo;how many left?&rdquo; messages</li>
             <li>Paper, chat threads, and spreadsheets &mdash; all gone</li>
-            <li>Pull out the app with new clients &mdash; instant professional impression</li>
           </ul>
           <span class="more">Read the case <span>&rarr;</span></span>
         </div>
@@ -140,10 +168,14 @@ import Base from "../layouts/Base.astro";
           <p class="meta">The platform underneath &middot; 2025 to now</p>
           <h3>Vibe Code Home</h3>
           <p class="d">A collaborative ecosystem that turns ideas into products, for side-project builders and budget-conscious creators.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">Platform Layer</span>
+            <span class="feature-pill">Unified Auth</span>
+            <span class="feature-pill">Entitlement Engine</span>
+          </div>
           <ul class="scard-points">
             <li>Code is a skill. The ecosystem turns it into assets</li>
             <li>Makers share what actually worked, so the next one skips the guesswork</li>
-            <li>Technology is coordinates on a map; product thinking is the compass</li>
             <li>Course Kit is the first product built and proven on it</li>
           </ul>
           <span class="more">Read the case <span>&rarr;</span></span>
@@ -161,6 +193,11 @@ import Base from "../layouts/Base.astro";
           <p class="meta">Rakuten Bank &middot; 2021 to 2024</p>
           <h3>Delivering into a licensed bank</h3>
           <p class="d">KYC re-verification with IBM, Mobile ID device binding, PwC findings closed.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">9 Engineers Led</span>
+            <span class="feature-pill">5 Vendors (IBM)</span>
+            <span class="feature-pill">100% On-Time</span>
+          </div>
           <span class="more">Read the case <span>&rarr;</span></span>
         </div>
         <div class="scard-media ledgerbox">
@@ -179,11 +216,20 @@ import Base from "../layouts/Base.astro";
 
   <div class="wrap section">
     <p class="kicker">Now, August 2026</p>
-    <ul class="now-list">
-      <li><span class="dot"></span><span>Shipping the Course Kit personal plan, mid September 2026.</span></li>
-      <li><span class="dot"></span><span>Frontend engineering at FintechLife in Taipei.</span></li>
-      <li><span class="dot"></span><span>Talking to teams in <span data-site="citiesAnd">Dublin, Amsterdam and Tallinn</span> about Forward Deployed Engineer roles.</span></li>
-    </ul>
+    <div class="status-radar rv">
+      <div class="radar-card">
+        <span class="r-tag">Shipping</span>
+        <p class="r-val">Course Kit personal plan, mid September 2026.</p>
+      </div>
+      <div class="radar-card">
+        <span class="r-tag">Current Role</span>
+        <p class="r-val">Frontend engineering at FintechLife in Taipei.</p>
+      </div>
+      <div class="radar-card">
+        <span class="r-tag">Availability</span>
+        <p class="r-val">Open to Forward Deployed Engineer roles in <span data-site="citiesAnd">Dublin, Amsterdam and Tallinn</span>.</p>
+      </div>
+    </div>
   </div>
 
   <div class="wrap section" style="padding-top:0">

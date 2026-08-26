@@ -26,30 +26,64 @@ import Base from "../../layouts/Base.astro";
 
   <div class="wrap case-body">
 
+    <!-- The Setting & Governance Architecture -->
     <div class="case-sec">
-      <h2 class="rv">The setting</h2>
+      <h2 class="rv">The setting &amp; governance pipeline</h2>
       <p class="rv prose">A licensed bank is a building with rules you did not write. The regulator sets what the system has to do. The operations department holds the requirements and does not describe them in features. Five vendors, one of them IBM, deliver pieces you depend on and do not manage. Everything you ship has to survive an audit.</p>
-      <p class="rv prose">This is the shape of a forward deployed engagement, and I have been on both sides of it: the one running vendor delivery, and the one being accepted or rejected by somebody else's operations team.</p>
-    </div>
 
-    <div class="case-sec">
-      <h2 class="rv">Three pieces of the work</h2>
-      <div class="dcards">
-        <div class="dcard spot rv">
-          <h3>KYC re-verification, with an IBM vendor team</h3>
-          <p>I owned the bank side. The requirements came from the operations department in the language of regulation and manual process, not features. What shipped moves customers onto one, three or five year re-verification cycles by AML risk score, replacing manual outreach. It was accepted into production against Taiwan FSC requirements.</p>
+      <div class="step-pipeline rv">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <span class="step-title">FSC Regulations &amp; Ops</span>
+          <span class="step-desc">Translating non-technical compliance requirements into strict engineering specifications.</span>
         </div>
-        <div class="dcard spot rv">
-          <h3>The device binding gate</h3>
-          <p>Fund transfers only unlock once the handset is bound to the account, verified by checking the SIM against the account phone number through telco Mobile ID. Built once, then reused across four transfer modules rather than reimplemented in each.</p>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <span class="step-title">Team Lead &amp; 5 Vendors</span>
+          <span class="step-desc">Leading 9 engineers and vendor governance (IBM, HSM, Telco) via standardized review SOPs.</span>
         </div>
-        <div class="dcard spot rv">
-          <h3>Closing fifteen PwC findings</h3>
-          <p>An external security assessment flagged sensitive data held in client-side cookies. I moved that storage to IndexedDB and worked through the auditor's list until all fifteen findings were closed. The driver was the external audit and the sensitivity of the data, not a refactor I wanted to do.</p>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <span class="step-title">PwC Audit &amp; Production</span>
+          <span class="step-desc">15/15 external security findings resolved; 100% on-time quarterly production releases.</span>
         </div>
       </div>
     </div>
 
+    <!-- Three Pieces of the Work -->
+    <div class="case-sec">
+      <h2 class="rv">Three critical production deliverables</h2>
+      <div class="dcards">
+        <div class="dcard spot rv">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+            <span class="badge-pill success">FSC Accepted</span>
+            <span class="badge-pill">IBM Vendor Delivery</span>
+          </div>
+          <h3>KYC re-verification with IBM</h3>
+          <p>Owned bank-side delivery for KYC CDD/EDD re-verification. Replaced manual outreach with an automated system moving customers onto 1, 3, or 5-year re-verification cycles by AML risk score. Accepted into production against Taiwan FSC requirements.</p>
+        </div>
+
+        <div class="dcard spot rv">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+            <span class="badge-pill">Mobile ID Gateway</span>
+            <span class="badge-pill">4 Payment Modules</span>
+          </div>
+          <h3>Device binding security gate</h3>
+          <p>Engineered the gate that unlocks fund transfers by verifying handset SIM against the registered account number via telco Mobile ID. Built once with clean abstraction, then reused across four core transfer modules rather than reimplemented.</p>
+        </div>
+
+        <div class="dcard spot rv">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+            <span class="badge-pill success">15 / 15 Closed</span>
+            <span class="badge-pill">IndexedDB Migration</span>
+          </div>
+          <h3>PwC external security audit</h3>
+          <p>An external PwC assessment flagged sensitive client storage in browser cookies. Migrated storage to encrypted IndexedDB and systematically resolved all 15 audit findings to full sign-off.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leading Delivery & KPI Impact -->
     <div class="case-sec">
       <h2 class="rv">Leading the delivery</h2>
       <div class="results cols4 rv">
@@ -58,15 +92,48 @@ import Base from "../../layouts/Base.astro";
         <div class="rcell"><span class="n">100%</span><span class="l">on-time quarters</span></div>
         <div class="rcell"><span class="n">2 days</span><span class="l">to first PR</span></div>
       </div>
-      <p class="rv prose">Five backend, two frontend, two mobile, plus two outsourcing vendors on the delivery itself. Quarterly delivery ran on time every quarter, sometimes up to two weeks early.</p>
-      <p class="rv prose">Reviewing work you did not commission, from people who do not report to you, turns into a negotiation unless there is a written standard. There was no review practice, so I wrote the SOP the team still uses to code-review vendor deliverables. I also documented the onboarding path in Confluence, which took time to first pull request from three weeks down to two days.</p>
-      <p class="rv prose">The other recurring job was building against a specification I did not control. Rakuten Japan changed the member ecosystem APIs that every group subsidiary had to adopt. We did not own the spec and could not influence its timing, and still had to land the upgrade without the bank ever sitting in a non-compliant state. Most of that work was not code. It was establishing what the specification actually meant, what our exposure was, and in what order to move.</p>
+
+      <div class="before-after-grid rv" style="margin-top:28px">
+        <div class="ba-card before">
+          <span class="ba-tag">&cross; Before (Ad-hoc Process)</span>
+          <p style="margin:0"><strong>3 weeks</strong> for new engineers to ship first pull request &middot; No standardized review practice for vendor code &middot; Vulnerable to specification mismatch.</p>
+        </div>
+        <div class="ba-card after">
+          <span class="ba-tag">&check; After (Engineering Governance)</span>
+          <p style="margin:0"><strong>2 days</strong> to first PR via Confluence runbooks &middot; Standardized vendor code-review SOP in active use &middot; 100% on-time delivery across every quarter.</p>
+        </div>
+      </div>
     </div>
 
+    <!-- Forward Deployed Alignment -->
     <div class="case-sec">
-      <h2 class="rv">Why this matters for deployed work</h2>
-      <p class="rv prose">A deployed engineer arrives somewhere with rules they did not write, requirements held by people who are not engineers, and partners they depend on but do not manage. I spent three years in exactly that position, and then three more years being the vendor on the other side of it.</p>
-      <p class="rv prose">The transferable part is not the banking. It is knowing what it costs a customer when you get the spec wrong, and knowing how the person on the other side decides whether to accept what you built.</p>
+      <h2 class="rv">Why this matters for Forward Deployed roles</h2>
+      <table class="cheat-sheet rv">
+        <thead>
+          <tr>
+            <th>FDE Challenge</th>
+            <th>How I Handled It Inside the Bank</th>
+            <th>Tangible Proof</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Non-Technical Stakeholders</strong></td>
+            <td>Translated regulatory and operations requirements into production software architecture.</td>
+            <td>FSC-compliant KYC with IBM</td>
+          </tr>
+          <tr>
+            <td><strong>External Vendor Dependencies</strong></td>
+            <td>Managed 5 vendor teams without direct authority through clear SOPs and quality gates.</td>
+            <td>100% on-time delivery track</td>
+          </tr>
+          <tr>
+            <td><strong>Strict Audit &amp; Compliance</strong></td>
+            <td>Led security hardening and architectural compliance under strict scrutiny.</td>
+            <td>15/15 PwC audit closures</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>

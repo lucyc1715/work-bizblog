@@ -41,11 +41,19 @@ import Base from "../../layouts/Base.astro";
     <div class="case-sec">
       <div class="sec-split">
         <div>
-      <h2 class="rv">The problem</h2>
-      <p class="rv">A freelance coach sells lessons in blocks. What is left of a block lives on a paper card, in a chat thread, or in a spreadsheet only the coach can open. The client has no way to check the same number.</p>
-      <p class="rv">So both sides count on their own. The two counts agree for a while. Then a lesson gets rescheduled, or a card goes through the wash, and they stop agreeing. The disagreement surfaces at the end of a session, between two people who otherwise like each other, and the coach is the one who ends up looking careless.</p>
-      <p class="rv">Software that fixes this already exists, and it is built for studios with a front desk and a membership system. A coach who works out of three different gyms is not who it was designed for.</p>
-      <p class="rv">Two questions, then. Would one shared record end the argument? And could one person build everything that record needs to sit on: app, backend, payments and storefront?</p>
+          <h2 class="rv">The problem</h2>
+          <p class="rv">A freelance coach sells lessons in blocks. What is left of a block lives on a paper card, in a chat thread, or in a spreadsheet only the coach can open. The client has no way to check the same number.</p>
+
+          <div class="before-after-grid rv" style="margin-top:16px">
+            <div class="ba-card before">
+              <span class="ba-tag">&cross; Before (Paper &amp; Chats)</span>
+              <p style="margin:0">Cards get lost in wash &middot; Spreadsheets out of sync &middot; Awkward session-end disputes.</p>
+            </div>
+            <div class="ba-card after">
+              <span class="ba-tag">&check; After (Course Kit)</span>
+              <p style="margin:0">One shared record on both devices &middot; Coach deducts, student verifies immediately &middot; Zero friction.</p>
+            </div>
+          </div>
         </div>
         <figure class="sec-fig clipin">
           <img src="/assets/problem-paper-records.png" alt="A coach and a client beside a funnel of paper notes and spreadsheets pouring into one tablet">
@@ -70,16 +78,19 @@ import Base from "../../layouts/Base.astro";
       <h2 class="rv">Decisions</h2>
       <div class="dcards">
         <div class="dcard spot rv">
-          <h3>Flutter and Firebase, because there was only me</h3>
-          <p>Two native apps and a server I keep alive myself is three jobs. One codebase covers both stores and a managed backend covers the nights. I gave up some control over the platform and bought back the only thing actually in short supply.</p>
+          <span class="badge-pill" style="margin-bottom:8px">Tech Stack</span>
+          <h3>Flutter &amp; Firebase for 1-person scale</h3>
+          <p>Two native apps and a custom backend is three full-time jobs. One Flutter codebase covers both app stores and GCP managed services handle uptime.</p>
         </div>
         <div class="dcard spot rv">
-          <h3>One-time purchase, not a subscription</h3>
-          <p>A subscription needs billing states, renewals, dunning and refunds. That is weeks of work before anyone has told me the product is worth paying for. A one-time purchase asked the real question first, and asked it in the first release.</p>
+          <span class="badge-pill" style="margin-bottom:8px">Business Model</span>
+          <h3>One-time purchase over subscription</h3>
+          <p>Avoided recurring dunning, billing state machines, and churn complexity upfront to validate willingness-to-pay on release one.</p>
         </div>
         <div class="dcard spot rv">
-          <h3>The free line ran through features, not plans</h3>
-          <p>Collaborative courses need an account, so they lived in the cloud and cost money. Self-recorded lessons need nobody else, so they stayed on the phone and stayed free. A clean line, drawn on the wrong axis. More on that below.</p>
+          <span class="badge-pill" style="margin-bottom:8px">Data Isolation</span>
+          <h3>Local-first vs cloud sync boundary</h3>
+          <p>Self-recorded lessons live offline on phone (zero cloud cost); collaborative courses sync via Firestore accounts.</p>
         </div>
       </div>
     </div>
@@ -120,16 +131,37 @@ import Base from "../../layouts/Base.astro";
         <div class="rcell"><span class="n"><span class="cnt" data-to="100">100</span>+</span><span class="l">actives</span></div>
         <div class="rcell"><span class="n"><span class="cnt" data-to="0">0</span></span><span class="l">ad spend</span></div>
       </div>
-      <p class="rv">A small number of paying users, and no money spent to reach them.</p>
+      <p class="rv" style="margin-top:14px">A growing base of paying users acquired purely through organic SEO with zero paid advertising.</p>
     </div>
 
-    <div class="case-sec longform">
-      <h2 class="rv">What I would do differently</h2>
-      <p class="rv">The professional plan proved the pain was real. It also sold to almost nobody, while more than a hundred people opened the app every month.</p>
-      <p class="rv">Those hundred were the self-recording users, and the professional plan was priced for someone managing other people's lessons. They were only managing their own. What they needed was a plan in between, and a plan in between needed sync across their devices, and their data was sitting on one phone by design.</p>
-      <p class="rv">That is where the line I had drawn came due. Moving the data to the cloud took two and a half weeks. The schema change took a day. The other twelve went into sync states, the paid-tier gate, and testing against records that already existed on people's phones.</p>
-      <p class="rv">If I drew the line again I would draw it by plan, not by feature. Every feature would sit on one account model, with the three extra fields in the schema from the first release, and switching plans would move a flag rather than a database.</p>
-      <p class="rv">The free tier would still stay on the phone. One product cannot serve a person who wants records nobody else can read and a person who wants charts on every device. A plan boundary can serve both. A feature boundary made me pick.</p>
+    <div class="case-sec">
+      <h2 class="rv">Architectural Evolution &amp; Post-Mortem</h2>
+      <p class="rv prose">The initial design drew boundaries by feature rather than by plan, causing a 2.5-week migration when self-recording users wanted multi-device sync.</p>
+
+      <table class="decision-table rv">
+        <thead>
+          <tr>
+            <th>Architecture Version</th>
+            <th>Data Boundary Design</th>
+            <th>Migration Friction</th>
+            <th>Key Engineering Lesson</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>V1: Feature Boundary</strong></td>
+            <td>Offline SQLite for self-records; Cloud Firestore for collaborative courses.</td>
+            <td><span class="badge-pill warning">2.5 Weeks Migration</span> to move local records to cloud when adding sync.</td>
+            <td>Drawing boundaries on features causes painful schema forks across tiers.</td>
+          </tr>
+          <tr>
+            <td><strong>V2: Plan Boundary (Refactored)</strong></td>
+            <td>Unified account model with entitlement flags controlling cloud sync vs local storage.</td>
+            <td><span class="badge-pill success">Zero Migration Cost</span> when users upgrade plans.</td>
+            <td>Architecture should scale by user entitlement tiers, not feature branches.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="case-sec">

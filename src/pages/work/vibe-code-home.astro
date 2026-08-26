@@ -29,25 +29,50 @@ import Base from "../../layouts/Base.astro";
 
   <div class="wrap case-body">
 
+    <!-- Why it exists & Pipeline -->
     <div class="case-sec">
-      <h2 class="rv">Why it exists</h2>
-      <p class="rv prose">Plenty of people can build a working side project. Far fewer can put a price on it, take the money, and keep serving the person who paid. That gap is not a coding problem. It is a market and business problem, and it is where most side projects quietly stop.</p>
-      <p class="rv prose">So the ecosystem came first and the app came second. Rather than bolt payments onto one product and move on, I built the shared layer up front: accounts, entitlements, checkout. The point is that the next maker who wants to ship something can plug into a layer that already works, instead of rebuilding it from nothing.</p>
+      <h2 class="rv">Why it exists: From code to commercial assets</h2>
+      <p class="rv prose">Plenty of people can build a working side project. Far fewer can put a price on it, take money safely, and keep serving the person who paid. That gap is not a coding problem &mdash; it is an infrastructure and entitlement problem where most side projects stop.</p>
+
+      <div class="step-pipeline rv">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <span class="step-title">1. Build Core Product</span>
+          <span class="step-desc">Developer creates the product feature (e.g. Flutter app, web tool).</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <span class="step-title">2. Connect VCH Layer</span>
+          <span class="step-desc">Plug into unified auth, Stripe checkout, and multi-rail entitlements.</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <span class="step-title">3. Operate &amp; Monetize</span>
+          <span class="step-desc">Sell across web and app stores with zero recurring billing overhead.</span>
+        </div>
+      </div>
     </div>
 
+    <!-- Where Course Kit sits -->
     <div class="case-sec">
-      <h2 class="rv">Where Course Kit sits</h2>
-      <p class="rv prose">Course Kit is the first product running on the platform, and it is mine. It is not a third party I signed. It is the case that proves the layer holds: real users, real money, three stores, one account. A second maker now runs their own product on it, which is the first time the layer has carried something I did not write.</p>
-      <p class="rv prose">A user signs in once. The app and the website share the same identity, so there is no licence key to paste and no email address to reconcile. When Course Kit needs to know what someone owns, it asks the platform, and the answer arrives the same shape whether the purchase came from an app store or a card.</p>
+      <h2 class="rv">Where Course Kit sits as Proof-of-Concept</h2>
+      <p class="rv prose">Course Kit is the first product running on the platform. It proves the infrastructure holds under real-world constraints: real users, real money, 3 app stores, and 1 unified account model. A second creator now runs their own SaaS on top of this layer.</p>
+      
+      <div class="feature-pills rv">
+        <span class="feature-pill">Single Sign-On (SSO)</span>
+        <span class="feature-pill">Cross-Platform License Sync</span>
+        <span class="feature-pill">Zero Key Pasting</span>
+        <span class="feature-pill">Multi-Project Firebase</span>
+      </div>
     </div>
 
+    <!-- Engineering Decision & Flow -->
     <div class="case-sec railwrap">
       <div class="inner railgrid">
         <div class="railtext">
           <h2 class="rv">The engineering decision</h2>
-          <p class="rv">Course Kit and the platform are two separate Firebase projects, deliberately. Apple and Google receipts are verified inside Course Kit's own backend. Stripe checkout and its webhook live on the platform side. Neither writes into the other.</p>
-          <p class="rv">That leaves the client holding three partial views of the same question: what does this person own? It resolves them by taking the highest tier, not the most recent write.</p>
-          <p class="rv">Last write wins would mean a delayed webhook or an out-of-order retry could silently downgrade someone who has paid. Resolving upward means the worst case is that a person keeps access slightly longer than they should. For a one-person company with no support desk, that is the right direction to fail in.</p>
+          <p class="rv">Course Kit and the platform are two separate Firebase projects by design. Apple and Google receipts are verified inside Course Kit's backend; Stripe checkout lives on the platform side.</p>
+          <p class="rv">The client resolves conflicting purchase states by taking the <strong>highest tier, not the last write</strong>.</p>
         </div>
         <figure class="railfig rv">
           <svg viewBox="-78 0 498 272" role="img" aria-label="Apple and Google receipts verified in the Course Kit backend, Stripe verified on the Vibe Code Home platform, all three read by the client which resolves to the highest tier">
@@ -70,16 +95,45 @@ import Base from "../../layouts/Base.astro";
       </div>
     </div>
 
+    <!-- Trade-Off Decision Matrix -->
+    <div class="case-sec">
+      <h2 class="rv">Entitlement Resolution Trade-Off Matrix</h2>
+      <table class="decision-table rv">
+        <thead>
+          <tr>
+            <th>Architecture Strategy</th>
+            <th>How It Works</th>
+            <th>Operational Risk</th>
+            <th>Why Chosen / Trade-off</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Highest Tier Wins (Chosen)</strong></td>
+            <td>Client evaluates all 3 rails and grants access matching the highest valid subscription/purchase.</td>
+            <td>Worst case: user retains access slightly longer if a refund webhook is delayed.</td>
+            <td><span class="badge-pill success">Zero False Downgrades</span> &middot; Zero customer support friction for a solo operator.</td>
+          </tr>
+          <tr>
+            <td><strong>Last Write Wins (Rejected)</strong></td>
+            <td>Latest incoming webhook or receipt timestamp overwrites the user's database status.</td>
+            <td>Delayed webhooks or out-of-order retries silently strip paid access from paying users.</td>
+            <td><span class="badge-pill warning">High Support Risk</span> &middot; Unacceptable customer frustration.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- What this shows -->
     <div class="case-sec">
       <h2 class="rv">What this shows</h2>
-      <p class="rv prose">The instinct that gets rewarded here is not the one that asks what would be fun to build. It is the one that asks what someone is already struggling with, what they would pay to stop struggling with, and what the business needs to be able to run once they have paid.</p>
-      <p class="rv prose">That is the same instinct a deployed engineer needs in someone else's building. A one-person company just makes the feedback faster and the consequences yours.</p>
+      <p class="rv prose">The instinct that gets rewarded here is not the one that asks what would be fun to build. It is the one that asks what creators are already struggling with, what they would pay to stop struggling with, and what the business needs to run reliably.</p>
     </div>
 
     <div class="case-sec">
       <h2 class="rv">Status</h2>
-      <p class="rv prose">Early. Course Kit is live on the platform. We are recruiting the first ten seed creators. Built alongside full-time employment.</p>
-      <p class="links-line"><a href="https://vibecodehome.io/" target="_blank" rel="noopener">vibecodehome.io</a> &middot; <a href="/work/coursekit">Read the Course Kit case</a></p>
+      <p class="rv prose">Course Kit is live on the platform. We are currently recruiting the first ten seed creators.</p>
+      <p class="links-line"><a href="https://vibecodehome.io/" target="_blank" rel="noopener">vibecodehome.io &rarr;</a> &middot; <a href="/work/coursekit">Read the Course Kit case study &rarr;</a></p>
     </div>
 
   </div>

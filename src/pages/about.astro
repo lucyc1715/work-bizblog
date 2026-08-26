@@ -8,39 +8,113 @@ import Base from "../layouts/Base.astro";
     <h1 data-split>Ten years in software, then I built my own&nbsp;thing</h1>
     <p class="lede prose" style="margin-top:18px">Both halves taught me the same thing: the hard part is working out what someone actually needs, and then answering for what you ship.</p>
 
-    <div class="lead-grid" style="margin-top:30px">
-      <div class="longform">
-        <p class="rv">I have spent ten years building customer-facing software, five of them in finance, where a product has to satisfy a regulator before it can satisfy a user. Account opening, deposits, lending, device binding, biometrics, know-your-customer. Three of those five were at Taiwan's first digital-only bank, where I led nine engineers and the delivery of five vendors.</p>
-        <p class="rv">Inside a bank the interesting problem is rarely the code. It is working out what a rule actually requires, what it costs the person on the other side when you get it wrong, and how to sequence a change so nothing is ever in a state it should not be in. That is the part of my work I am still best at.</p>
-        <p class="rv">A bank also settles two things before you arrive. The regulator sets the problem, and what a banking app already looks like sets the shape of the answer. Nobody has to ask whether the thing should exist.</p>
-        <p class="rv">So in late 2025 I started a company and gave myself the question a bank never has to ask: what should exist, and would anyone pay for it.</p>
-        <p class="rv">Course Kit is the answer I got, built alongside a full-time role. I did the market research, the design, the app, the backend, the payments, the pricing, the brand and the marketing, because there was nobody to hand any of it to. AI tooling is what makes that scope possible for one person. Four years ago it would have taken a team. Every decision came back to me, including the ones I got wrong and had to pay for later.</p>
-        <p class="rv">None of that was a move away from engineering. It was a way to become the kind of engineer who can see the whole line, from what a customer actually needs to what it costs to keep running. That is the line a Forward Deployed Engineer works along, and it is the job I want next.</p>
-
-        <h2 class="rv">What I am building</h2>
-        <p class="rv">Course Kit is a course-management app I designed, built and shipped alone on iOS, Android and a web storefront, with three payment rails in production and paying customers. It runs on Vibe Code Home, a platform a partner and I built so that people who can write code can also sell what they make.</p>
-
-        <h2 class="rv">What the bank left me with</h2>
-        <p class="rv">I am comfortable when the requirements belong to someone who is not an engineer and does not describe them in features. I am comfortable building against a specification I do not control and cannot change. And I am comfortable being the person who explains, to a room that does not write code, why something takes the shape it does. That last one used to be the part of the job I did on the side. It is now most of what I think the work is.</p>
+    <!-- Dual-Pillar Comparison Matrix: Bank Tech Lead vs Solo Founder -->
+    <div class="dual-matrix rv">
+      <div class="dual-col spot">
+        <div class="dual-header">
+          <div>
+            <h3 class="dual-title">Inside a Licensed Bank</h3>
+            <span class="dual-period">2021 &ndash; 2024 &middot; Rakuten Bank</span>
+          </div>
+          <span class="dual-badge">Tech Team Leader</span>
+        </div>
+        <div class="dual-rows">
+          <div class="dual-row">
+            <span class="dual-k">Team &amp; Scale</span>
+            <span class="dual-v">Led <strong>9 engineers</strong> (5 BE, 2 FE, 2 Mobile) &amp; managed <strong>5 vendors</strong> (IBM, HSM, Telco).</span>
+          </div>
+          <div class="dual-row">
+            <span class="dual-k">Governance</span>
+            <span class="dual-v"><strong>100% on-time</strong> quarterly delivery. Built vendor review SOPs and cut onboarding time from 3 weeks to 2 days.</span>
+          </div>
+          <div class="dual-row">
+            <span class="dual-k">Compliance</span>
+            <span class="dual-v">Delivered FSC KYC CDD/EDD re-verification, Mobile ID device binding, and closed <strong>15 PwC audit</strong> findings.</span>
+          </div>
+          <div class="dual-row">
+            <span class="dual-k">Core Lesson</span>
+            <span class="dual-v">Requirements belong to regulators &amp; operations; zero tolerance for non-compliant states.</span>
+          </div>
+        </div>
       </div>
-      <aside class="glance rv">
-        <h2>At a glance</h2>
-        <dl>
-          <dt>Looking for</dt><dd>Forward Deployed Engineer, product engineering</dd>
-          <dt>Where</dt><dd data-site="where">Dublin, Amsterdam, Tallinn, or remote across the EU</dd>
-          <dt>Work authorisation</dt><dd>Taiwanese national. Needs employer sponsorship: IE Critical Skills Permit, NL Highly Skilled Migrant, or EE residence permit</dd>
-          <dt>Available</dt><dd><span data-site="notice">8 to 12 weeks</span>. Open to customer travel and on-site work</dd>
-          <dt>Languages</dt><dd>English, full professional. Mandarin, native</dd>
-        </dl>
-        <p class="g-links">
-          <a href="/cv">CV</a>
-          <a href="mailto:lucychen.biz@gmail.com">Email</a>
-          <a href="https://linkedin.com/in/lucychen-ai" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/lucyc1715" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </aside>
+
+      <div class="dual-col spot">
+        <div class="dual-header">
+          <div>
+            <h3 class="dual-title">Solo Product Engineering</h3>
+            <span class="dual-period">2025 &ndash; present &middot; LZpreneur O&Uuml;</span>
+          </div>
+          <span class="dual-badge">Founder &amp; Builder</span>
+        </div>
+        <div class="dual-rows">
+          <div class="dual-row">
+            <span class="dual-k">Team &amp; Scale</span>
+            <span class="dual-v"><strong>Solo 0-to-1</strong>: Flutter iOS &amp; Android, web storefront, Cloud Functions backend on GCP.</span>
+          </div>
+          <div class="dual-row">
+            <span class="dual-k">Payments</span>
+            <span class="dual-v"><strong>3 production rails</strong> (Stripe, Apple IAP, Google Play IAP) normalised into unified entitlement schema.</span>
+          </div>
+          <div class="dual-row">
+            <span class="dual-k">Traction</span>
+            <span class="dual-v"><strong>350+ users</strong>, 100+ MAU, paying customers, <strong>$0 ad spend</strong> via organic SEO. 8 releases in 8 months.</span>
+          </div>
+          <div class="dual-row">
+            <span class="dual-k">Core Lesson</span>
+            <span class="dual-v">Seeing the whole line: from user pain point to unit economics and maintenance cost.</span>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Synthesis Banner -->
+    <div class="dual-synthesis rv">
+      <div class="syn-icon" aria-hidden="true">&rarr;</div>
+      <p><strong>The Forward Deployed Engineer Advantage:</strong> Combining enterprise compliance rigor with startup-speed execution &mdash; translating non-technical requirements into reliable, production software that survives audit and solves real customer pain.</p>
+    </div>
+
+    <!-- Recruiter Fast-Pass Table -->
+    <div class="case-sec" style="margin-top:36px">
+      <h2 class="rv">At a glance for recruiters &amp; hiring teams</h2>
+      <table class="cheat-sheet rv">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Status &amp; Verification</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Target Role</strong></td>
+            <td><span class="badge-pill">Forward Deployed Engineer</span></td>
+            <td>Product Engineering, Integration Engineering, Solutions Architecture</td>
+          </tr>
+          <tr>
+            <td><strong>Relocation Targets</strong></td>
+            <td><span class="badge-pill success">Open to Relocation</span></td>
+            <td><span data-site="where">Dublin, Amsterdam, Tallinn, or EU remote</span> &middot; Open to customer travel &amp; on-site</td>
+          </tr>
+          <tr>
+            <td><strong>Work Authorization</strong></td>
+            <td><span class="badge-pill">Employer Sponsorship</span></td>
+            <td>Taiwanese national &middot; Qualifying ICT Degree (BBA IM) for <strong>Ireland Critical Skills Employment Permit (CSEP)</strong>, NL Highly Skilled Migrant, EE Residence</td>
+          </tr>
+          <tr>
+            <td><strong>Availability</strong></td>
+            <td><span class="badge-pill success"><span data-site="notice">8 to 12 weeks</span></span></td>
+            <td>Currently frontend engineer at FintechLife, Taipei &middot; Available for calls 09:00&ndash;20:00 IST</td>
+          </tr>
+          <tr>
+            <td><strong>Languages</strong></td>
+            <td><span class="badge-pill">English &amp; Mandarin</span></td>
+            <td>English (Full professional &middot; UK Master's from University of Liverpool) &middot; Mandarin (Native)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Vertical Timeline (Preserved) -->
     <div class="case-sec" style="margin-top:40px">
       <h2 class="rv">Where I have been</h2>
       <div class="vtl">
@@ -147,19 +221,61 @@ import Base from "../layouts/Base.astro";
       </div>
     </div>
 
+    <!-- Beyond code: Concept Transfer Diagram -->
     <div class="case-sec">
-      <h2 class="rv">Beyond code</h2>
-      <p class="rv prose">In the middle of an engineering career I went to the UK and took a master's in music industry studies. It is the least linear thing on my CV and the most useful. A year spent on how work reaches an audience, who owns what, and who gets paid when it does, is a year spent on distribution and rights, which turned out to be the same questions I now answer with payment rails and entitlements.</p>
-      <p class="rv prose">I still write about it. There are four pieces on the <a href="/writing">writing</a> page about how the music business is actually structured.</p>
+      <h2 class="rv">Beyond code: Cross-domain transfer</h2>
+      <p class="rv prose">In the middle of an engineering career I completed a master's in music industry studies at the University of Liverpool. Studying how work reaches audiences, who owns rights, and who gets paid turned out to be the exact conceptual foundation for software payment rails and entitlement architectures.</p>
+      
+      <div class="concept-bridge rv">
+        <div class="bridge-node">
+          <strong>Music Industry (Liverpool MA)</strong>
+          <p style="margin:4px 0 0;font-size:.78rem;color:var(--muted)">Copyright splits, mechanical licensing, sync fees, royalty accounting</p>
+        </div>
+        <div class="bridge-arrow">&rarr;</div>
+        <div class="bridge-node">
+          <strong>Transferable Concept</strong>
+          <p style="margin:4px 0 0;font-size:.78rem;color:var(--muted)">Multi-party rights verification, distribution pipelines &amp; governance</p>
+        </div>
+        <div class="bridge-arrow">&rarr;</div>
+        <div class="bridge-node">
+          <strong>Fintech Software Architecture</strong>
+          <p style="margin:4px 0 0;font-size:.78rem;color:var(--muted)">Stripe/Apple/Google unified entitlement schema &amp; KYC compliance</p>
+        </div>
+      </div>
+
+      <div class="mini-grid rv">
+        <a class="mini-card" href="/writing/music-industry-structure-and-careers">
+          <h4>Industry Structure &amp; Careers &rarr;</h4>
+          <p>The operational roles from A&amp;R to distribution.</p>
+        </a>
+        <a class="mini-card" href="/writing/music-copyright-royalty-streams-for-songwriters">
+          <h4>Copyright &amp; 5 Royalty Streams &rarr;</h4>
+          <p>Composition vs Master rights, sync &amp; mechanicals.</p>
+        </a>
+        <a class="mini-card" href="/writing/indie-artists-overseas-tour-guide">
+          <h4>Overseas Tour Guide &rarr;</h4>
+          <p>Agents, promoters, routing and budget execution.</p>
+        </a>
+      </div>
     </div>
 
+    <!-- Live Status -->
     <div class="case-sec">
       <h2 class="rv">Right now</h2>
-      <ul class="now-list">
-        <li><span class="dot"></span><span>Shipping the Course Kit personal plan, mid September 2026.</span></li>
-        <li><span class="dot"></span><span>Frontend engineering at FintechLife, Taipei. Full time, available in <span data-site="notice">8 to 12 weeks</span>.</span></li>
-        <li><span class="dot"></span><span>Talking to teams in <span data-site="citiesAnd">Dublin, Amsterdam and Tallinn</span> about Forward Deployed Engineer roles.</span></li>
-      </ul>
+      <div class="status-radar rv">
+        <div class="radar-card">
+          <span class="r-tag">Shipping Soon</span>
+          <p class="r-val">Course Kit personal plan, mid September 2026.</p>
+        </div>
+        <div class="radar-card">
+          <span class="r-tag">Current Full-time</span>
+          <p class="r-val">Frontend engineering at FintechLife, Taipei &middot; Available in <span data-site="notice">8 to 12 weeks</span>.</p>
+        </div>
+        <div class="radar-card">
+          <span class="r-tag">Conversations</span>
+          <p class="r-val">Talking to teams in <span data-site="citiesAnd">Dublin, Amsterdam and Tallinn</span> about Forward Deployed Engineer roles.</p>
+        </div>
+      </div>
       <p class="links-line"><a href="mailto:lucychen.biz@gmail.com">lucychen.biz@gmail.com</a> &middot; <a href="https://linkedin.com/in/lucychen-ai" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/lucyc1715" target="_blank" rel="noopener">GitHub</a> &middot; I reply within 24 hours.</p>
     </div>
   </div>
