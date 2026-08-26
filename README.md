@@ -1,6 +1,6 @@
-# lucycbiz.com
+# work.lucycbiz.com
 
-Lucy Chen's personal site. Astro, static output, no framework runtime.
+Lucy Chen's professional site, served from a subdomain of lucycbiz.com. Astro, static output, no framework runtime.
 
 Built from the v3 prototype at
 `lucy-minions/prototypes/lucycbiz/preview/v3/index.html`. That file was a single
