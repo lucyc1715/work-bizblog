@@ -1,0 +1,87 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+<Base title="Vibe Code Home">
+<section class="route">
+  <div class="case-hero">
+    <span class="hero-glow g1" aria-hidden="true"></span>
+    <span class="case-hero-floor" aria-hidden="true"></span>
+    <div class="case-hero-text">
+      <p class="kicker">Vibe Code Home</p>
+      <h1 data-split>Code is a skill. Turn it into assets.</h1>
+      <p class="lede">The membership and payments layer that Course Kit plugs into, built with a partner. An ecosystem for people who can already write code but cannot yet sell what they write.</p>
+      <div class="btn-row hero-cta">
+        <a class="btn primary" href="https://vibecodehome.io/" target="_blank" rel="noopener">Visit the site</a>
+        <a class="btn" href="https://vibecodehome.io/products/course-kit" target="_blank" rel="noopener">Course Kit on the platform</a>
+      </div>
+    </div>
+    <div class="case-hero-media">
+      <div class="stagewrap">
+        <div class="scard-media site" style="height:auto;background:none;padding:0">
+          <div class="winframe">
+            <div class="winbar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="/assets/vch-site.png" alt="Vibe Code Home homepage">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap case-body">
+
+    <div class="case-sec">
+      <h2 class="rv">Why it exists</h2>
+      <p class="rv prose">Plenty of people can build a working side project. Far fewer can put a price on it, take the money, and keep serving the person who paid. That gap is not a coding problem. It is a market and business problem, and it is where most side projects quietly stop.</p>
+      <p class="rv prose">So the ecosystem came first and the app came second. Rather than bolt payments onto one product and move on, we built the shared layer up front: accounts, entitlements, checkout. The point is that the next maker who wants to ship something can plug into a layer that already works, instead of rebuilding it from nothing.</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Where Course Kit sits</h2>
+      <p class="rv prose">Course Kit is the first product running on the platform, and it is mine. It is not a third party we signed. It is the case that proves the layer holds: real users, real money, three stores, one account.</p>
+      <p class="rv prose">A user signs in once. The app and the website share the same identity, so there is no licence key to paste and no email address to reconcile. When Course Kit needs to know what someone owns, it asks the platform, and the answer arrives the same shape whether the purchase came from an app store or a card.</p>
+    </div>
+
+    <div class="case-sec railwrap">
+      <div class="inner railgrid">
+        <div class="railtext">
+          <h2 class="rv">The engineering decision</h2>
+          <p class="rv">Course Kit and the platform are two separate Firebase projects, deliberately. Apple and Google receipts are verified inside Course Kit's own backend. Stripe checkout and its webhook live on the platform side. Neither writes into the other.</p>
+          <p class="rv">That leaves the client holding three partial views of the same question: what does this person own? It resolves them by taking the highest tier, not the most recent write.</p>
+          <p class="rv">Last write wins would mean a delayed webhook or an out-of-order retry could silently downgrade someone who has paid. Resolving upward means the worst case is that a person keeps access slightly longer than they should. For a one-person company with no support desk, that is the right direction to fail in.</p>
+        </div>
+        <figure class="railfig rv">
+          <svg viewBox="-78 0 498 272" role="img" aria-label="Apple and Google receipts verified in the Course Kit backend, Stripe verified on the Vibe Code Home platform, all three read by the client which resolves to the highest tier">
+            <path class="flowline draw" style="--len:900" d="M128 44 C214 44 232 136 296 136 M128 136 H296 M128 228 C214 228 232 136 296 136"/>
+            <circle class="flownode" cx="119" cy="44" r="9"/>
+            <circle class="flownode" cx="119" cy="136" r="9"/>
+            <circle class="flownode" cx="119" cy="228" r="9"/>
+            <circle class="flownode hub" cx="310" cy="136" r="15"/>
+            <text class="raillabel" x="101" y="41" text-anchor="end">Apple / Google</text>
+            <text class="raillabel sub" x="101" y="56" text-anchor="end">Course Kit backend</text>
+            <text class="raillabel" x="101" y="133" text-anchor="end">Account tier</text>
+            <text class="raillabel sub" x="101" y="148" text-anchor="end">Course Kit</text>
+            <text class="raillabel" x="101" y="225" text-anchor="end">Stripe</text>
+            <text class="raillabel sub" x="101" y="240" text-anchor="end">platform</text>
+            <text class="raillabel strong" x="310" y="180" text-anchor="middle">highest tier</text>
+            <text class="raillabel sub" x="310" y="198" text-anchor="middle">not last write</text>
+          </svg>
+          <figcaption class="figcap">Three sources, resolved upward.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">What this shows</h2>
+      <p class="rv prose">The instinct that gets rewarded here is not the one that asks what would be fun to build. It is the one that asks what someone is already struggling with, what they would pay to stop struggling with, and what the business needs to be able to run once they have paid.</p>
+      <p class="rv prose">That is the same instinct a deployed engineer needs in someone else's building. A one-person company just makes the feedback faster and the consequences yours.</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Status</h2>
+      <p class="rv prose">Early. Course Kit is live on the platform. We are recruiting the first ten seed creators. Built alongside full-time employment.</p>
+      <p class="links-line"><a href="https://vibecodehome.io/" target="_blank" rel="noopener">vibecodehome.io</a> &middot; <a href="/work/coursekit">Read the Course Kit case</a></p>
+    </div>
+
+  </div>
+</section>
+</Base>

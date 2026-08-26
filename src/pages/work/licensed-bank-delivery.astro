@@ -1,0 +1,76 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+<Base title="Licensed bank delivery">
+<section class="route">
+  <div class="case-hero">
+    <span class="hero-glow g1" aria-hidden="true"></span>
+    <span class="case-hero-floor" aria-hidden="true"></span>
+    <div class="case-hero-text">
+      <p class="kicker">Rakuten International Commercial Bank</p>
+      <h1 data-split>Delivering into a licensed bank</h1>
+      <p class="lede">Three years inside Taiwan's first digital-only bank, on both sides of the vendor relationship. Senior Frontend Engineer, then Tech Team Leader.</p>
+    </div>
+    <div class="case-hero-media">
+      <div class="stagewrap">
+        <ul class="minilist" style="max-width:420px">
+          <li><span class="mk">KYC CDD/EDD with IBM</span><span class="mv">accepted</span></li>
+          <li><span class="mk">Mobile ID device binding</span><span class="mv">4 modules</span></li>
+          <li><span class="mk">PwC security findings</span><span class="mv">15 closed</span></li>
+          <li><span class="mk">Quarterly delivery</span><span class="mv">100% on time</span></li>
+          <li><span class="mk">Time to first PR</span><span class="mv">3 weeks &rarr; 2 days</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap case-body">
+
+    <div class="case-sec">
+      <h2 class="rv">The setting</h2>
+      <p class="rv prose">A licensed bank is a building with rules you did not write. The regulator sets what the system has to do. The operations department holds the requirements and does not describe them in features. Five vendors, one of them IBM, deliver pieces you depend on and do not manage. Everything you ship has to survive an audit.</p>
+      <p class="rv prose">This is the shape of a forward deployed engagement, and I have been on both sides of it: the one running vendor delivery, and the one being accepted or rejected by somebody else's operations team.</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Three pieces of the work</h2>
+      <div class="dcards">
+        <div class="dcard spot rv">
+          <h3>KYC re-verification, with an IBM vendor team</h3>
+          <p>I owned the bank side. The requirements came from the operations department in the language of regulation and manual process, not features. What shipped moves customers onto one, three or five year re-verification cycles by AML risk score, replacing manual outreach. It was accepted into production against Taiwan FSC requirements.</p>
+        </div>
+        <div class="dcard spot rv">
+          <h3>The device binding gate</h3>
+          <p>Fund transfers only unlock once the handset is bound to the account, verified by checking the SIM against the account phone number through telco Mobile ID. Built once, then reused across four transfer modules rather than reimplemented in each.</p>
+        </div>
+        <div class="dcard spot rv">
+          <h3>Closing fifteen PwC findings</h3>
+          <p>An external security assessment flagged sensitive data held in client-side cookies. I moved that storage to IndexedDB and worked through the auditor's list until all fifteen findings were closed. The driver was the external audit and the sensitivity of the data, not a refactor I wanted to do.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Leading the delivery</h2>
+      <div class="results rv" style="grid-template-columns:repeat(4,1fr)">
+        <div class="rcell"><span class="n">9</span><span class="l">engineers</span></div>
+        <div class="rcell"><span class="n">5</span><span class="l">vendors</span></div>
+        <div class="rcell"><span class="n">100%</span><span class="l">on-time quarters</span></div>
+        <div class="rcell"><span class="n">2 days</span><span class="l">to first PR</span></div>
+      </div>
+      <p class="rv prose">Five backend, two frontend, two mobile, plus two outsourcing vendors on the delivery itself. Quarterly delivery ran on time every quarter, sometimes up to two weeks early.</p>
+      <p class="rv prose">Reviewing work you did not commission, from people who do not report to you, turns into a negotiation unless there is a written standard. There was no review practice, so I wrote the SOP the team still uses to code-review vendor deliverables. I also documented the onboarding path in Confluence, which took time to first pull request from three weeks down to two days.</p>
+      <p class="rv prose">The other recurring job was building against a specification I did not control. Rakuten Japan changed the member ecosystem APIs that every group subsidiary had to adopt. We did not own the spec and could not influence its timing, and still had to land the upgrade without the bank ever sitting in a non-compliant state. Most of that work was not code. It was establishing what the specification actually meant, what our exposure was, and in what order to move.</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Why this matters for deployed work</h2>
+      <p class="rv prose">A deployed engineer arrives somewhere with rules they did not write, requirements held by people who are not engineers, and partners they depend on but do not manage. I spent three years in exactly that position, and then three more years being the vendor on the other side of it.</p>
+      <p class="rv prose">The transferable part is not the banking. It is knowing what it costs a customer when you get the spec wrong, and knowing how the person on the other side decides whether to accept what you built.</p>
+      <!-- TODO Lucy: 這頁最有力的補強是 KYC 那段的一個具體場景（規格改了幾次、你怎麼收斂需求、
+           某次 FSC 或 ops 的回饋讓你改了什麼）。事實表裡沒有這層細節，我不編。你補一段最好。 -->
+    </div>
+
+  </div>
+</section>
+</Base>

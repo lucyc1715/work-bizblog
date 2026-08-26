@@ -1,0 +1,148 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+<Base title="Course Kit">
+<section class="route">
+  <div class="case-hero">
+    <span class="hero-glow g1" aria-hidden="true"></span>
+    <span class="case-hero-floor" aria-hidden="true"></span>
+    <div class="case-hero-text">
+      <p class="kicker">Course Kit</p>
+      <div class="title-row">
+        <h1 data-split>One person, three platforms, paying customers</h1>
+        <img class="otter" src="/assets/otter-peek-l.png" alt="Course Kit otter mascot peeking around the headline">
+      </div>
+      <p class="lede">A course-management SaaS I designed, built and shipped alone: iOS, Android and a web storefront.</p>
+      <div class="store-badges hero-cta">
+        <a class="store-badge" href="https://apps.apple.com/app/id6757183231" target="_blank" rel="noopener" aria-label="Download Course Kit on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zm3.632-3.855c.843-1.012 1.4-2.427 1.245-3.831-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=io.lzpreneur.coursekit" target="_blank" rel="noopener" aria-label="Get Course Kit on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626-2.5-2.5 2.501-2.482zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.635z"/></svg><span><small>GET IT ON</small><strong>Google Play</strong></span></a>
+        <a class="site-btn" href="https://coursekitapp.com/en/" target="_blank" rel="noopener">Official website</a>
+      </div>
+    </div>
+    <div class="case-hero-media" id="ckHeroMedia">
+      <div class="stagewrap">
+      <div class="stage" id="stage">
+        <div class="stage-phones">
+          <div class="phone side" data-par="0.30"><img src="/assets/shot-statistic.png" width="312" height="700" alt="Course Kit statistics overview"></div>
+          <div class="phone" data-par="0.06"><img src="/assets/shot-self-list.png" width="312" height="700" alt="Course Kit self courses list"></div>
+          <div class="phone side" data-par="0.36"><img src="/assets/shot-collab-detail.png" width="312" height="700" alt="Course Kit collaborative course detail"></div>
+        </div>
+        <div class="stat s1" data-par="0.5"><div class="stat-in pop"><div class="k">Remaining</div><div class="v" data-count="22"><small>sessions</small></div></div></div>
+        <div class="stat s2" data-par="0.66"><div class="stat-in pop"><div class="k">Invested</div><div class="v" data-count="1.58" data-dec="2" data-suffix="K"><small>EUR</small></div></div></div>
+        <div class="stat s3 up" data-par="0.42"><div class="stat-in pop"><div class="k">Unit price</div><div class="v" data-count="66.7" data-dec="1" data-prefix="+" data-suffix="%"></div></div></div>
+      </div>
+        <p class="shotnote">Screens and figures are sample data</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap case-body">
+
+    <div class="case-sec">
+      <h2 class="rv">The problem</h2>
+      <p class="rv">A freelance coach sells lessons in blocks. What is left of a block lives on a paper card, in a chat thread, or in a spreadsheet only the coach can open. The client has no way to check the same number.</p>
+      <p class="rv">So both sides count on their own. The two counts agree for a while. Then a lesson gets rescheduled, or a card goes through the wash, and they stop agreeing. The disagreement surfaces at the end of a session, between two people who otherwise like each other, and the coach is the one who ends up looking careless.</p>
+      <p class="rv">Software that fixes this already exists, and it is built for studios with a front desk and a membership system. A coach who works out of three different gyms is not who it was designed for.</p>
+      <p class="rv">Two questions, then. Would one shared record end the argument? And could one person build everything that record needs to sit on: app, backend, payments and storefront?</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">What I built</h2>
+      <p class="rv">One record, open from both ends. The coach deducts a session; the client sees the same balance and the same history a moment later. Neither side keeps a private tally, so there is nothing left to disagree about.</p>
+      <p class="rv">Around that record: a Flutter app on iOS and Android, a web storefront, three payment rails, and a Firebase backend on GCP. All of it mine.</p>
+      <div class="shots">
+        <figure class="shot clipin" style="margin:0"><img src="/assets/store-1.png" alt="Course Kit course list with remaining sessions"><figcaption class="cap">Course list</figcaption></figure>
+        <figure class="shot clipin" style="margin:0"><img src="/assets/store-2.png" alt="Course Kit invite code screen"><figcaption class="cap">Invite code</figcaption></figure>
+        <figure class="shot clipin" style="margin:0"><img src="/assets/store-3.png" alt="Course Kit manager and member sync screen"><figcaption class="cap">Manager and member sync</figcaption></figure>
+        <figure class="shot clipin" style="margin:0"><img src="/assets/store-4.png" alt="Course Kit scheduling calendar"><figcaption class="cap">Scheduling</figcaption></figure>
+        <figure class="shot clipin" style="margin:0"><img src="/assets/store-5.png" alt="Course Kit self-recorded lesson log"><figcaption class="cap">Self recorded logs</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Decisions</h2>
+      <div class="dcards">
+        <div class="dcard spot rv">
+          <h3>Flutter and Firebase, because there was only me</h3>
+          <p>Two native apps and a server I keep alive myself is three jobs. One codebase covers both stores and a managed backend covers the nights. I gave up some control over the platform and bought back the only thing actually in short supply.</p>
+        </div>
+        <div class="dcard spot rv">
+          <h3>One-time purchase, not a subscription</h3>
+          <p>A subscription needs billing states, renewals, dunning and refunds. That is weeks of work before anyone has told me the product is worth paying for. A one-time purchase asked the real question first, and asked it in the first release.</p>
+        </div>
+        <div class="dcard spot rv">
+          <h3>The free line ran through features, not plans</h3>
+          <p>Collaborative courses need an account, so they lived in the cloud and cost money. Self-recorded lessons need nobody else, so they stayed on the phone and stayed free. A clean line, drawn on the wrong axis. More on that below.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-sec railwrap" id="railSec">
+      <div class="inner railgrid">
+        <div class="railtext">
+          <h2 class="rv">The interesting engineering</h2>
+          <p class="rv">Selling on three platforms means being paid in three ways. Apple, Google and Stripe report a purchase in three different shapes. Cloud Functions normalise them into one Firestore entitlement schema, so the client never learns where the money came from.</p>
+          <p class="rv">Conflicts resolve to the highest tier, not the last write.</p>
+          <p class="rv">Every interface change was additive, so the three-tier pricing change shipped with zero regressions.</p>
+        </div>
+        <figure class="railfig rv">
+          <svg viewBox="-78 0 498 272" role="img" aria-label="Apple IAP, Google Play and Stripe receipts normalised into one Firestore entitlement schema that the client reads">
+            <path class="flowline draw" style="--len:900" d="M128 44 C214 44 232 136 296 136 M128 136 H296 M128 228 C214 228 232 136 296 136"/>
+            <circle class="flownode" cx="119" cy="44" r="9"/>
+            <circle class="flownode" cx="119" cy="136" r="9"/>
+            <circle class="flownode" cx="119" cy="228" r="9"/>
+            <circle class="flownode hub" cx="310" cy="136" r="15"/>
+            <text class="raillabel" x="101" y="49" text-anchor="end">Apple IAP</text>
+            <text class="raillabel" x="101" y="141" text-anchor="end">Google Play</text>
+            <text class="raillabel" x="101" y="233" text-anchor="end">Stripe</text>
+            <text class="raillabel strong" x="310" y="180" text-anchor="middle">entitlement</text>
+            <text class="raillabel sub" x="310" y="198" text-anchor="middle">one schema</text>
+          </svg>
+          <figcaption class="figcap">Three rails, one schema.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Results</h2>
+      <div class="results rv">
+        <div class="rcell"><span class="n"><span class="cnt" data-to="6">6</span></span><span class="l">releases</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="4">4</span></span><span class="l">months</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="3">3</span></span><span class="l">platforms</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="350">350</span>+</span><span class="l">users</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="100">100</span>+</span><span class="l">actives</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="0">0</span></span><span class="l">ad spend</span></div>
+      </div>
+      <p class="rv">Page one on Google, and a paying customer on launch day.</p>
+    </div>
+
+    <div class="case-sec longform">
+      <h2 class="rv">What I would do differently</h2>
+      <p class="rv">The professional plan proved the pain was real. It also sold to almost nobody, while more than a hundred people opened the app every month.</p>
+      <p class="rv">Those hundred were the self-recording users, and the professional plan was priced for someone managing other people's lessons. They were only managing their own. What they needed was a plan in between, and a plan in between needed sync across their devices, and their data was sitting on one phone by design.</p>
+      <p class="rv">That is where the line I had drawn came due. Moving the data to the cloud took two and a half weeks. The schema change took a day. The other twelve went into sync states, the paid-tier gate, and testing against records that already existed on people's phones.</p>
+      <p class="rv">If I drew the line again I would draw it by plan, not by feature. Every feature would sit on one account model, with the three extra fields in the schema from the first release, and switching plans would move a flag rather than a database.</p>
+      <p class="rv">The free tier would still stay on the phone. One product cannot serve a person who wants records nobody else can read and a person who wants charts on every device. A plan boundary can serve both. A feature boundary made me pick.</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Stack</h2>
+      <div class="marquee">
+        <div class="mtrack">
+          <div class="mgroup">
+            <span class="tag">Flutter</span><span class="tag">Firebase Cloud Functions</span><span class="tag">Firestore</span><span class="tag">GCP</span><span class="tag">Stripe</span><span class="tag">Apple IAP</span><span class="tag">Google Play IAP</span><span class="tag">Resend</span><span class="tag">Claude</span>
+          </div>
+          <div class="mgroup" aria-hidden="true">
+            <span class="tag">Flutter</span><span class="tag">Firebase Cloud Functions</span><span class="tag">Firestore</span><span class="tag">GCP</span><span class="tag">Stripe</span><span class="tag">Apple IAP</span><span class="tag">Google Play IAP</span><span class="tag">Resend</span><span class="tag">Claude</span>
+          </div>
+        </div>
+      </div>
+      <div class="store-badges" style="justify-content:flex-start">
+        <a class="store-badge" href="https://apps.apple.com/app/id6757183231" target="_blank" rel="noopener" aria-label="Download Course Kit on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zm3.632-3.855c.843-1.012 1.4-2.427 1.245-3.831-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=io.lzpreneur.coursekit" target="_blank" rel="noopener" aria-label="Get Course Kit on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626-2.5-2.5 2.501-2.482zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.635z"/></svg><span><small>GET IT ON</small><strong>Google Play</strong></span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+</Base>

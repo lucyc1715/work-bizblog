@@ -1,0 +1,19 @@
+---
+// Nav highlighting was a router job in the v3 single file; here it is emitted
+// at build time from the current path.
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const navClass = (target: string) =>
+  path === target || path.startsWith(target + "/") ? "on" : undefined;
+---
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt=""><b>Lucy Chen</b></a>
+    <div class="nav-links">
+      <a href="/work" data-nav="/work" class={navClass("/work")}>Work</a>
+      <a href="/about" data-nav="/about" class={navClass("/about")}>About</a>
+      <a href="/writing" data-nav="/writing" class={navClass("/writing")}>Writing</a>
+      <a href="/cv" data-nav="/cv" class={navClass("/cv")}>CV</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">&#9680;</button>
+  </nav>
+</header>

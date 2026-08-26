@@ -1,0 +1,152 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="CV">
+<section class="route">
+  <div class="wrap section">
+    <p class="kicker">CV</p>
+    <h1 data-split>Lucy Chen</h1>
+    <p class="lede prose">Product engineer. I build customer-facing software for regulated finance. Ten years delivering inside licensed banks, then I shipped my own SaaS solo to 350+ users on iOS, Android and web.</p>
+    <p class="avail" style="margin:14px 0 4px"><span class="pulse"></span><span data-site="open">Open to Forward Deployed Engineer roles in Dublin, Amsterdam, Tallinn or EU remote. Available in 8 to 12 weeks.</span></p>
+    <p class="links-line"><a href="mailto:lucychen.biz@gmail.com">lucychen.biz@gmail.com</a> &middot; <a href="https://linkedin.com/in/lucychen-ai" target="_blank" rel="noopener">linkedin.com/in/lucychen-ai</a> &middot; <a href="https://github.com/lucyc1715" target="_blank" rel="noopener">github.com/lucyc1715</a> &middot; Taipei, relocating to the EU</p>
+
+    <div class="case-sec">
+      <h2 class="rv">Experience</h2>
+
+      <div class="rv" style="margin-bottom:30px">
+        <h3>Founder &amp; Product Engineer &middot; LZpreneur O&Uuml;, Estonia (remote)</h3>
+        <p class="kicker" style="margin:6px 0 10px">Nov 2025 &ndash; present</p>
+        <ul class="now-list" style="max-width:none">
+          <li><span class="dot"></span><span>Built and shipped Course Kit alone: Flutter on iOS and Android plus a web storefront, with Apple IAP, Google Play IAP and Stripe all live in production.</span></li>
+          <li><span class="dot"></span><span>Cloud Functions normalise all three rails into a single Firestore entitlement schema the client reads without knowing the source. Conflicts resolve to the highest tier rather than last write, and additive-only interfaces let a later three-tier pricing change ship with zero regressions.</span></li>
+          <li><span class="dot"></span><span>Six releases in four months across three platforms. 350+ users and 100+ monthly active, acquired through SEO with no paid marketing, with paying customers. Operated alongside full-time employment, with no overlapping clients, customers or intellectual property.</span></li>
+        </ul>
+        <p class="links-line"><a href="/work/coursekit">Course Kit case</a> &middot; <a href="/work/vibe-code-home">Vibe Code Home case</a></p>
+      </div>
+
+      <div class="rv" style="margin-bottom:30px">
+        <h3>Frontend Engineer &middot; FintechLife, Taipei</h3>
+        <p class="kicker" style="margin:6px 0 10px">Nov 2024 &ndash; present</p>
+        <ul class="now-list" style="max-width:none">
+          <li><span class="dot"></span><span>Implemented RSA payload encryption in Vue 3 to meet PCI DSS, owning key lifecycle with the backend team. The platform passed its PCI DSS assessment.</span></li>
+          <li><span class="dot"></span><span>Built an AI-assisted development workflow in Claude with layered conventions, reusable commands and hooks, and coding standards enforced at generation. A typical feature went from three days to one.</span></li>
+          <li><span class="dot"></span><span>Defined REST API integration requirements with engineering teams in Lithuania, the US and Europe, and shipped the customer-facing developer portal in six weeks. Automated multi-locale UI regression testing in Playwright across three languages.</span></li>
+        </ul>
+      </div>
+
+      <div class="rv" style="margin-bottom:30px">
+        <h3>Working holiday &middot; United Kingdom</h3>
+        <p class="kicker" style="margin:6px 0 10px">Jun &ndash; Sep 2024 &middot; UK Youth Mobility Scheme</p>
+        <ul class="now-list" style="max-width:none">
+          <li><span class="dot"></span><span>Spent the last month of it working in London as a frontend engineer on a live gaming platform, building real-time interfaces in React, TypeScript, Redux and WebSocket.</span></li>
+        </ul>
+      </div>
+
+      <div class="rv emp" style="margin-bottom:30px">
+        <h3 class="emp-co">Rakuten International Commercial Bank, Taipei</h3>
+        <p class="kicker" style="margin:6px 0 4px">May 2021 &ndash; May 2024 &middot; Taiwan's first digital-only bank &middot; promoted after 18 months</p>
+
+        <div class="emp-roles">
+          <div class="emp-role">
+            <h4>Tech Team Leader</h4>
+            <p class="emp-when">Nov 2022 &ndash; May 2024</p>
+            <ul class="now-list" style="max-width:none">
+              <li><span class="dot"></span><span>Led delivery for nine engineers (five backend, two frontend, two mobile) plus two outsourcing development vendors, at 100% on-time quarterly delivery and sometimes up to two weeks early.</span></li>
+              <li><span class="dot"></span><span>Managed five vendors in total across certificate management, HSM and development, covering selection and due diligence, then access control and security review through delivery.</span></li>
+              <li><span class="dot"></span><span>First engineer on the bank's mobile app, covering account opening, deposits, lending, device binding and biometrics. Wrote the SOP the team still uses to code-review vendor deliverables, where no review practice existed.</span></li>
+              <li><span class="dot"></span><span>Documented the onboarding path in Confluence, cutting time to first pull request from three weeks to two days. Coordinated with Rakuten Japan on member-ecosystem API changes every subsidiary had to adopt.</span></li>
+            </ul>
+          </div>
+
+          <div class="emp-role">
+            <h4>Senior Frontend Engineer</h4>
+            <p class="emp-when">May 2021 &ndash; Oct 2022</p>
+            <ul class="now-list" style="max-width:none">
+              <li><span class="dot"></span><span>Owned bank-side delivery of KYC CDD/EDD re-verification with an IBM vendor team, gathering requirements directly from the operations department and accepting it into production against Taiwan FSC requirements. Customers now re-verify on one, three or five year cycles by AML risk score.</span></li>
+              <li><span class="dot"></span><span>Built the device-binding gate that unlocks fund transfers, verifying handset SIM against the account phone number via telco Mobile ID, then reused it across four transfer modules.</span></li>
+              <li><span class="dot"></span><span>Moved sensitive client-side storage from cookies to IndexedDB, closing fifteen findings from PwC's external security assessment.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="links-line"><a href="/work/licensed-bank-delivery">Licensed bank delivery case</a></p>
+      </div>
+
+      <div class="rv" style="margin-bottom:30px">
+        <h3>Frontend Engineer &middot; Shengsen Cloud Technology, Taipei</h3>
+        <p class="kicker" style="margin:6px 0 10px">Nov 2020 &ndash; Mar 2021 &middot; On site at Far Eastern International Bank</p>
+        <ul class="now-list" style="max-width:none">
+          <li><span class="dot"></span><span>Designed and built a logistics management system in React and TypeScript, integrating the DHL API and cutting manual coordination between teams by 40%.</span></li>
+        </ul>
+      </div>
+
+      <div class="rv" style="margin-bottom:30px">
+        <h3>Project Coordinator &middot; Wistron ITS, Taipei</h3>
+        <p class="kicker" style="margin:6px 0 10px">Oct 2016 &ndash; Jun 2019 &middot; On site at Hon Hai (Foxconn) H2U</p>
+        <ul class="now-list" style="max-width:none">
+          <li><span class="dot"></span><span>Coordinated delivery between project managers, systems analysts and engineers on member and admin platforms, and represented engineering in business requirements meetings.</span></li>
+        </ul>
+      </div>
+
+      <div class="rv">
+        <h3>Software Engineer &middot; Smart Catch Inc., Taipei</h3>
+        <p class="kicker" style="margin:6px 0 10px">Aug 2015 &ndash; Oct 2016 &middot; Java, Spring MVC, MySQL, REST</p>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Skills</h2>
+      <ul class="now-list" style="max-width:none">
+        <li><span class="dot"></span><span><b>Languages &amp; frameworks</b> &mdash; TypeScript, JavaScript, Vue 3, Angular, React, Flutter, Node.js, GraphQL. Design systems, multi-locale UI, Playwright UI regression, performance and security hardening.</span></li>
+        <li><span class="dot"></span><span><b>Backend &amp; cloud</b> &mdash; REST API design, GraphQL, Firebase Cloud Functions, Firestore, PostgreSQL, Node.js. GCP, AWS, Jenkins, CI/CD, Linux, Git.</span></li>
+        <li><span class="dot"></span><span><b>Payments &amp; identity</b> &mdash; Stripe, Apple IAP, Google Play IAP, unified entitlement schema across rails. OAuth 2.0, Firebase Auth, Mobile ID, PKI and HSM, RSA payload encryption, PCI DSS.</span></li>
+        <li><span class="dot"></span><span><b>AI &amp; applied LLM</b> &mdash; AI-assisted development workflows with style guides, reusable commands and hooks, and standards enforced at generation. Agentic workflow design with Claude and MCP, including Playwright MCP. LLM-assisted test automation.</span></li>
+        <li><span class="dot"></span><span><b>Delivery &amp; collaboration</b> &mdash; Nine-engineer team leadership, vendor management, requirements definition, runbooks and SOPs, Agile and Scrum, JIRA, Confluence, PMP. SEO to page one, email marketing, content strategy.</span></li>
+      </ul>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Certifications and education</h2>
+      <ul class="now-list" style="max-width:none">
+        <li><span class="dot"></span><span><b>Project Management Professional (PMP)</b>, Project Management Institute. September 2025.</span></li>
+        <li><span class="dot"></span><span><b>AWS Certified Cloud Practitioner (CLF-C02)</b>. October 2024, valid to October 2027.</span></li>
+        <li><span class="dot"></span><span><b>MA Music Industry Studies (Merit)</b>, University of Liverpool, UK. 2019 to 2020.</span></li>
+        <li><span class="dot"></span><span><b>BBA Information Management</b>, Chihlee University of Technology, Taipei. 2011 to 2015.</span></li>
+      </ul>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Hiring questions, answered</h2>
+      <div class="readers">
+        <div class="rcard spot rv">
+          <h3>Location and permit</h3>
+          <ul class="rlist">
+            <li>Taiwanese national</li>
+            <li>Relocating to <span data-site="citiesOr">Dublin, Amsterdam or Tallinn</span></li>
+            <li>Needs employer sponsorship: IE Critical Skills Permit, NL Highly Skilled Migrant, or EE residence permit</li>
+            <li>Software development is on Ireland's Critical Skills list, and my BBA in Information Management is the qualifying ICT degree</li>
+          </ul>
+        </div>
+        <div class="rcard spot rv">
+          <h3>Availability and travel</h3>
+          <ul class="rlist">
+            <li>Available in <span data-site="notice">8 to 12 weeks</span></li>
+            <li>Open to customer travel and on-site work</li>
+            <li>Open to remote-first teams once relocated</li>
+            <li>Reachable for calls 09:00 to 20:00 IST</li>
+          </ul>
+        </div>
+        <div class="rcard spot rv">
+          <h3>Languages</h3>
+          <ul class="rlist">
+            <li>English, full professional proficiency</li>
+            <li>MA taught and awarded in English by a UK institution</li>
+            <li>Delivered with engineering teams in the UK, Lithuania and the US</li>
+            <li>Mandarin Chinese, native</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</Base>

@@ -1,0 +1,50 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/site.css";
+
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
+const pageTitle = title ? `Lucy Chen \u00b7 ${title}` : "Lucy Chen";
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{pageTitle}</title>
+<meta name="description" content="Lucy Chen. A product engineer who has shipped regulated financial software for a decade, can take a product from zero to paying users alone, and has led the team that delivered it. Open to Forward Deployed Engineer roles in Dublin, Amsterdam, Tallinn or EU remote.">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;600;700&display=swap" rel="stylesheet">
+<script is:inline>
+  /* Paint-blocking bootstrap: the single-file build set these from a script at
+     the end of <body>, which a bundled module cannot match without a flash. */
+  (function () {
+    var root = document.documentElement;
+    try {
+      var t = localStorage.getItem("lc-theme");
+      if (t === "dark" || t === "light") root.setAttribute("data-theme", t);
+    } catch (e) {}
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) root.classList.add("js");
+  }());
+</script>
+</head>
+<body>
+
+<Header />
+
+<main id="app">
+<slot />
+</main>
+
+<Footer />
+
+<script>
+  import "../scripts/site.js";
+</script>
+</body>
+</html>
