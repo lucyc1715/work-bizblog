@@ -515,11 +515,11 @@ body.pointer::after{opacity:1}
    ============================================================ */
 .case-hero{
   position:relative;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-  align-items:end;min-height:58vh;gap:clamp(24px,4vw,56px);overflow:hidden;
+  align-items:center;min-height:58vh;gap:clamp(24px,4vw,56px);overflow:hidden;
   padding-left:max(20px, calc((100vw - var(--wrap)) / 2 + 20px));
   padding-right:clamp(20px,4vw,40px);
 }
-.case-hero-text{position:relative;z-index:2;padding:48px 0 clamp(34px,4.4vw,60px)}
+.case-hero-text{position:relative;z-index:2;padding:clamp(40px,4.4vw,60px) 0}
 .case-hero-text h1{font-size:clamp(2.1rem,4.2vw,3.3rem);max-width:16ch}
 .case-hero-text .lede{font-size:clamp(1rem,1.4vw,1.14rem);color:var(--muted);max-width:38ch}
 /* the otter peeks around the right edge of the headline */
@@ -530,8 +530,8 @@ body.pointer::after{opacity:1}
   margin-bottom:-6px;filter:drop-shadow(0 10px 12px rgba(23,25,30,.20));
 }
 .case-hero-media{
-  position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;
-  gap:clamp(10px,1.4vw,22px);padding:34px clamp(12px,2vw,34px) 0 0;
+  position:relative;z-index:2;display:flex;align-items:center;justify-content:center;
+  gap:clamp(10px,1.4vw,22px);padding:clamp(24px,3vw,40px) clamp(12px,2vw,34px);
 }
 /* the stage sits beside the otter; the sample-data note rides under it */
 .case-hero-media .stagewrap{display:flex;flex-direction:column;flex:1 1 auto;min-width:0}
@@ -545,6 +545,17 @@ body.pointer::after{opacity:1}
 .links-line{font-size:.92rem;margin-top:22px}
 .links-line a{border-bottom:1px solid var(--line-strong);transition:border-color .16s ease}
 .links-line a:hover{border-bottom-color:var(--accent)}
+
+/* prose keeps its measure; the illustration takes the gutter beside it */
+.sec-split{
+  display:grid;grid-template-columns:minmax(0,var(--prose)) minmax(260px,1fr);
+  gap:clamp(32px,5vw,72px);align-items:center;
+}
+.sec-fig{margin:0}
+.sec-fig img{
+  width:100%;height:auto;display:block;border-radius:16px;
+  border:1px solid var(--line);box-shadow:var(--shadow-lift);
+}
 
 .case-body h2{margin:0 0 22px}
 .case-body p{max-width:var(--prose)}
@@ -762,7 +773,7 @@ a.dcard h3{color:var(--ink)}
   .case-hero{grid-template-columns:1fr;padding-left:clamp(20px,5vw,32px);padding-right:clamp(20px,5vw,32px);min-height:0;gap:8px}
   .case-hero-text{padding:44px 0 12px}
   .case-hero-text .lede{max-width:none}
-  .readers,.dcards,.railgrid{grid-template-columns:1fr}
+  .readers,.dcards,.railgrid,.sec-split{grid-template-columns:1fr}
   .railfig{margin-top:26px}
   .shots{grid-template-columns:repeat(3,1fr);gap:14px}
   .nums{grid-template-columns:repeat(3,1fr);gap:18px}
