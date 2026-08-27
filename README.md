@@ -23,7 +23,7 @@ src/
   layouts/Base.astro         head, header, footer, theme bootstrap
   components/Header.astro    nav; the active link is resolved at build time
   components/Footer.astro
-  pages/                     one file per route (12)
+  pages/                     one file per route (11)
   styles/site.css            the prototype's stylesheet, verbatim
   scripts/site.js            the prototype's script, minus the hash router
 public/assets/               images
