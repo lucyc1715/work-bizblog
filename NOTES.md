@@ -37,6 +37,24 @@ Installing needs Lucy's say-so, since the project is meant to depend on astro
 alone. Until that is settled, `npm run build` is the only gate that actually
 runs.
 
+**With JavaScript off, every page renders blank.** `site.css` hides `.route` by
+default and only `.route.active` is visible, and the `active` class is added by
+`site.js:308-310` at init. Nothing adds it without JS, so a visitor or crawler
+that does not run scripts sees an empty page. This is a leftover from the
+single-file prototype, which used a hash router and needed to hide the inactive
+routes. Now that Astro emits one route per page the hiding has no job left, and
+`.route{display:none}` could probably just go. Left alone because it touches
+every page and the reveal animations read the same class. The print stylesheet
+already works around it by forcing `.route{display:block}`. Worth noting that
+AGENTS.md describes the `data-site` fallback text as being there for crawlers
+and no-JS visitors, which cannot be true while this rule stands.
+
+**Four dead CSS blocks predate the recruiter-first rewrite.** `.diagram-box`,
+`.rlist`, `.sublist` and `.placeholder` are defined in `site.css` but referenced
+by nothing under `src/`. They were already unused before the rewrite (checked
+against HEAD), so they were left alone rather than swept up in an unrelated
+change. Delete them whenever `site.css` is next touched for real.
+
 **Wide tables scroll sideways on phones and the last column is cut off.**
 `.cheat-sheet` and `.decision-table` become their own scroll container below
 700px (`site.css`, responsive block), which stops them pushing the whole page

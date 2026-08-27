@@ -9,10 +9,10 @@ import Base from "../../layouts/Base.astro";
     <div class="case-hero-text">
       <p class="kicker">Course Kit</p>
       <div class="title-row">
-        <h1 data-split>One person, three platforms, paying customers</h1>
+        <h1 data-split>Zero to 350+ paying users,&nbsp;alone.</h1>
         <img class="otter" src="/assets/otter-peek-l.png" alt="Course Kit otter mascot peeking around the headline">
       </div>
-      <p class="lede">A course-management SaaS I designed, built and shipped alone: iOS, Android and a web storefront.</p>
+      <p class="lede">A coach sells lessons in blocks of sessions. What happens next is everything I designed, built &mdash; and got wrong once.</p>
       <div class="store-badges hero-cta">
         <a class="store-badge" href="https://apps.apple.com/app/id6757183231" target="_blank" rel="noopener" aria-label="Download Course Kit on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zm3.632-3.855c.843-1.012 1.4-2.427 1.245-3.831-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a>
         <a class="store-badge" href="https://play.google.com/store/apps/details?id=io.lzpreneur.coursekit" target="_blank" rel="noopener" aria-label="Get Course Kit on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626-2.5-2.5 2.501-2.482zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.635z"/></svg><span><small>GET IT ON</small><strong>Google Play</strong></span></a>
@@ -80,7 +80,7 @@ import Base from "../../layouts/Base.astro";
         <div class="dcard spot rv">
           <span class="badge-pill" style="margin-bottom:8px">Tech Stack</span>
           <h3>Flutter &amp; Firebase for 1-person scale</h3>
-          <p>Two native apps and a custom backend is three full-time jobs. One Flutter codebase covers both app stores and GCP managed services handle uptime.</p>
+          <p>Two native apps plus a custom backend is three full-time jobs, and there was only one of me. So I cheated smart: one Flutter codebase for both app stores, and managed GCP services that keep the lights on while I sleep.</p>
         </div>
         <div class="dcard spot rv">
           <span class="badge-pill" style="margin-bottom:8px">Business Model</span>
@@ -104,19 +104,25 @@ import Base from "../../layouts/Base.astro";
           <p class="rv">Every interface change was additive, so the three-tier pricing change shipped with zero regressions.</p>
         </div>
         <figure class="railfig rv">
-          <svg viewBox="-78 0 498 272" role="img" aria-label="Apple IAP, Google Play and Stripe receipts normalised into one Firestore entitlement schema that the client reads">
-            <path class="flowline draw" style="--len:900" d="M128 44 C214 44 232 136 296 136 M128 136 H296 M128 228 C214 228 232 136 296 136"/>
-            <circle class="flownode" cx="119" cy="44" r="9"/>
-            <circle class="flownode" cx="119" cy="136" r="9"/>
-            <circle class="flownode" cx="119" cy="228" r="9"/>
-            <circle class="flownode hub" cx="310" cy="136" r="15"/>
-            <text class="raillabel" x="101" y="49" text-anchor="end">Apple IAP</text>
-            <text class="raillabel" x="101" y="141" text-anchor="end">Google Play</text>
-            <text class="raillabel" x="101" y="233" text-anchor="end">Stripe</text>
-            <text class="raillabel strong" x="310" y="180" text-anchor="middle">entitlement</text>
-            <text class="raillabel sub" x="310" y="198" text-anchor="middle">one schema</text>
+          <svg viewBox="-104 0 592 272" role="img" aria-label="The iOS app, Android app and web storefront each pay through their own rail; Cloud Functions normalise all three into one Firestore entitlement schema">
+            <path class="flowline draw" style="--len:1400" d="M12 44 C92 44 122 136 191 136 M12 136 H191 M12 228 C92 228 122 136 191 136 M221 136 H364"/>
+            <circle class="flownode" cx="0" cy="44" r="9"/>
+            <circle class="flownode" cx="0" cy="136" r="9"/>
+            <circle class="flownode" cx="0" cy="228" r="9"/>
+            <circle class="flownode hub" cx="206" cy="136" r="15"/>
+            <circle class="flownode hub" cx="380" cy="136" r="16"/>
+            <text class="raillabel" x="-14" y="40" text-anchor="end">Apple IAP</text>
+            <text class="raillabel sub" x="-14" y="57" text-anchor="end">iOS app</text>
+            <text class="raillabel" x="-14" y="132" text-anchor="end">Google Play</text>
+            <text class="raillabel sub" x="-14" y="149" text-anchor="end">Android app</text>
+            <text class="raillabel" x="-14" y="224" text-anchor="end">Stripe</text>
+            <text class="raillabel sub" x="-14" y="241" text-anchor="end">Web store</text>
+            <text class="raillabel strong" x="206" y="176" text-anchor="middle">Cloud Functions</text>
+            <text class="raillabel sub" x="206" y="194" text-anchor="middle">normalise</text>
+            <text class="raillabel strong" x="380" y="176" text-anchor="middle">Firestore</text>
+            <text class="raillabel sub" x="380" y="194" text-anchor="middle">entitlement</text>
           </svg>
-          <figcaption class="figcap">Three rails, one schema.</figcaption>
+          <figcaption class="figcap">Every purchase lands in the same schema, whichever rail it came through.</figcaption>
         </figure>
       </div>
     </div>
@@ -124,7 +130,7 @@ import Base from "../../layouts/Base.astro";
     <div class="case-sec">
       <h2 class="rv">Results</h2>
       <div class="results rv">
-        <div class="rcell"><span class="n"><span class="cnt" data-to="8">8</span></span><span class="l">releases</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="13">13</span></span><span class="l">releases</span></div>
         <div class="rcell"><span class="n"><span class="cnt" data-to="8">8</span></span><span class="l">months</span></div>
         <div class="rcell"><span class="n"><span class="cnt" data-to="3">3</span></span><span class="l">platforms</span></div>
         <div class="rcell"><span class="n"><span class="cnt" data-to="350">350</span>+</span><span class="l">users</span></div>
@@ -136,7 +142,7 @@ import Base from "../../layouts/Base.astro";
 
     <div class="case-sec">
       <h2 class="rv">Architectural Evolution &amp; Post-Mortem</h2>
-      <p class="rv prose">The initial design drew boundaries by feature rather than by plan, causing a 2.5-week migration when self-recording users wanted multi-device sync.</p>
+      <p class="rv prose">Here is where I got it wrong the first time: I drew my data boundaries by feature, not by plan. Then self-recording users asked for multi-device sync, and that one decision cost me a 2.5-week migration. An expensive lesson &mdash; but you only need to learn it once.</p>
 
       <table class="decision-table rv">
         <thead>

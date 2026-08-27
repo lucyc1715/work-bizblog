@@ -8,8 +8,8 @@ import Base from "../../layouts/Base.astro";
     <span class="case-hero-floor" aria-hidden="true"></span>
     <div class="case-hero-text">
       <p class="kicker">Vibe Code Home</p>
-      <h1 data-split>Code is a skill. Turn it into assets.</h1>
-      <p class="lede">The membership and payments layer that Course Kit plugs into, and I built it. An ecosystem for people who can already write code but cannot yet sell what they write.</p>
+      <h1 data-split>The layer that lets makers get&nbsp;paid.</h1>
+      <p class="lede">Course Kit runs on it with real users and real money in production. Now opening to the first ten seed creators.</p>
       <div class="btn-row hero-cta">
         <a class="btn primary" href="https://vibecodehome.io/" target="_blank" rel="noopener">Visit the site</a>
         <a class="btn" href="https://vibecodehome.io/products/course-kit" target="_blank" rel="noopener">Course Kit on the platform</a>
@@ -29,31 +29,29 @@ import Base from "../../layouts/Base.astro";
 
   <div class="wrap case-body">
 
-    <!-- Why it exists & Pipeline -->
     <div class="case-sec">
       <h2 class="rv">Why it exists: From code to commercial assets</h2>
-      <p class="rv prose">Plenty of people can build a working side project. Far fewer can put a price on it, take money safely, and keep serving the person who paid. That gap is not a coding problem &mdash; it is an infrastructure and entitlement problem where most side projects stop.</p>
+      <p class="rv prose">Plenty of people can build a side project. Very few can take money for it safely. Vibe Code Home is the layer that closes that gap &mdash; and Course Kit runs on it, with real users and real money, so I know it holds.</p>
 
       <div class="step-pipeline rv">
         <div class="step-item">
           <span class="step-num">1</span>
-          <span class="step-title">1. Build Core Product</span>
-          <span class="step-desc">Developer creates the product feature (e.g. Flutter app, web tool).</span>
+          <span class="step-title">Build the core product</span>
+          <span class="step-desc">The maker writes the thing itself, a Flutter app or a web tool.</span>
         </div>
         <div class="step-item">
           <span class="step-num">2</span>
-          <span class="step-title">2. Connect VCH Layer</span>
-          <span class="step-desc">Plug into unified auth, Stripe checkout, and multi-rail entitlements.</span>
+          <span class="step-title">Connect the platform layer</span>
+          <span class="step-desc">Plug into unified sign-in, Stripe checkout, and entitlements across all three rails.</span>
         </div>
         <div class="step-item">
           <span class="step-num">3</span>
-          <span class="step-title">3. Operate &amp; Monetize</span>
-          <span class="step-desc">Sell across web and app stores with zero recurring billing overhead.</span>
+          <span class="step-title">Sell and keep serving</span>
+          <span class="step-desc">Sell across web and both app stores without running a billing system.</span>
         </div>
       </div>
     </div>
 
-    <!-- Where Course Kit sits -->
     <div class="case-sec">
       <h2 class="rv">Where Course Kit sits as Proof-of-Concept</h2>
       <p class="rv prose">Course Kit is the first product running on the platform. It proves the infrastructure holds under real-world constraints: real users, real money, 3 app stores, and 1 unified account model. A second creator now runs their own SaaS on top of this layer.</p>
@@ -66,13 +64,25 @@ import Base from "../../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Engineering Decision & Flow -->
     <div class="case-sec railwrap">
       <div class="inner railgrid">
         <div class="railtext">
           <h2 class="rv">The engineering decision</h2>
           <p class="rv">Course Kit and the platform are two separate Firebase projects by design. Apple and Google receipts are verified inside Course Kit's backend; Stripe checkout lives on the platform side.</p>
           <p class="rv">The client resolves conflicting purchase states by taking the <strong>highest tier, not the last write</strong>.</p>
+
+          <div class="boundary rv">
+            <div class="boundary-box">
+              <span class="boundary-k">Course Kit project</span>
+              <p>Apple and Google receipts are verified here, inside the app's own Firebase backend.</p>
+            </div>
+            <span class="boundary-line" aria-hidden="true"></span>
+            <div class="boundary-box">
+              <span class="boundary-k">Platform project</span>
+              <p>Stripe checkout runs on the Vibe Code Home side, in a separate Firebase project.</p>
+            </div>
+          </div>
+          <p class="figcap" style="margin-top:10px">Two projects on purpose. Neither one can quietly overwrite the other's receipts.</p>
         </div>
         <figure class="railfig rv">
           <svg viewBox="-78 0 498 272" role="img" aria-label="Apple and Google receipts verified in the Course Kit backend, Stripe verified on the Vibe Code Home platform, all three read by the client which resolves to the highest tier">
@@ -95,7 +105,6 @@ import Base from "../../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Trade-Off Decision Matrix -->
     <div class="case-sec">
       <h2 class="rv">Entitlement Resolution Trade-Off Matrix</h2>
       <table class="decision-table rv">
@@ -124,10 +133,12 @@ import Base from "../../layouts/Base.astro";
       </table>
     </div>
 
-    <!-- What this shows -->
     <div class="case-sec">
       <h2 class="rv">What this shows</h2>
-      <p class="rv prose">The instinct that gets rewarded here is not the one that asks what would be fun to build. It is the one that asks what creators are already struggling with, what they would pay to stop struggling with, and what the business needs to run reliably.</p>
+      <blockquote class="pullquote rv">
+        <span class="pq-lead">What gets rewarded here</span>
+        <p>Not the instinct that asks what would be fun to build. The one that asks what creators are already struggling with, what they would pay to stop struggling with, and what the business needs to run reliably.</p>
+      </blockquote>
     </div>
 
     <div class="case-sec">

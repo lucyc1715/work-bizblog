@@ -12,6 +12,8 @@
   --accent-soft:#EAF1FA;
   --accent-ink:#3A6EAD;
   --muted:#5D6775;
+  --ok:#1F7A4C;
+  --warn:#9A6510;
 
   /* the one dark band, identical in both themes */
   --band-bg:#0D1219;
@@ -47,6 +49,8 @@
     --accent-soft:#1B2A3D;
     --accent-ink:#9DC0EE;
     --muted:#93A0B0;
+    --ok:#5FCF97;
+    --warn:#E0A94A;
     --shadow:0 1px 2px rgba(0,0,0,.55), 0 12px 30px rgba(0,0,0,.45);
     --shadow-lift:0 2px 5px rgba(0,0,0,.55), 0 26px 56px rgba(0,0,0,.6);
     --glow:rgba(127,171,227,.22);
@@ -61,10 +65,13 @@
   --ink:#E8ECF2;
   --line:#263140;
   --line-strong:#3A4757;
+  --rail-past:#5E7189;
   --accent:#7FABE3;
   --accent-soft:#1B2A3D;
   --accent-ink:#9DC0EE;
   --muted:#93A0B0;
+  --ok:#5FCF97;
+  --warn:#E0A94A;
   --shadow:0 1px 2px rgba(0,0,0,.55), 0 12px 30px rgba(0,0,0,.45);
   --shadow-lift:0 2px 5px rgba(0,0,0,.55), 0 26px 56px rgba(0,0,0,.6);
   --glow:rgba(127,171,227,.22);
@@ -76,7 +83,9 @@
 /* ============================================================
    1. base
    ============================================================ */
-*{box-sizing:border-box}
+/* CSS 的 * 選不到虛擬元素，漏掉的話 ::before 圓點會是 content-box，
+   寫 12px 加 2px 邊框實際渲染 16px，中心就跟軌道差 2px */
+*,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--ink);
@@ -317,15 +326,22 @@ body.pointer::after{opacity:1}
 /* ============================================================
    5. light number row
    ============================================================ */
-.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;border-top:1px solid var(--line);padding:clamp(34px,4vw,52px) 0 0;margin-bottom:clamp(56px,6vw,88px)}
+.nums{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:clamp(30px,3.6vw,46px) 0;margin-bottom:clamp(56px,6vw,88px);
+}
+/* 髮絲線畫在每格左邊而不是用 gap，四格才會等寬對齊 */
+.num-cell{padding:0 clamp(14px,2vw,26px);border-left:1px solid var(--line)}
+.num-cell:first-child{border-left:0;padding-left:0}
 .num-cell .n{
-  display:block;font-family:var(--display);font-weight:700;color:var(--ink);
-  font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:.94;letter-spacing:-.035em;
+  display:block;font-family:var(--display);font-weight:700;color:var(--accent);
+  font-size:clamp(2.4rem,4.6vw,4rem);line-height:.94;letter-spacing:-.035em;
   font-variant-numeric:tabular-nums;
 }
 .num-cell .l{
   display:block;margin-top:14px;font-size:.74rem;text-transform:uppercase;
-  letter-spacing:.16em;color:var(--muted);font-weight:600;
+  letter-spacing:.16em;color:var(--muted);font-weight:600;line-height:1.5;
 }
 
 /* ============================================================
@@ -576,10 +592,16 @@ body.pointer::after{opacity:1}
 }
 /* cards in a row end on the same line even when the bodies above differ in height */
 .dcard .links-line{margin-top:auto;padding-top:14px}
-/* rowsync: cards whose five internal rows line up across the row, so a kicker that
-   needs two lines in one card cannot push that card's title below its neighbours */
+/* rowsync: cards whose internal rows line up across the row, so a kicker that
+   needs two lines in one card cannot push that card's title below its neighbours.
+   軌道數量必須等於卡片的直接子元素佔用的列數，加一個子元素就要同步加一格 */
 .dcards.rowsync{grid-template-rows:auto auto auto 1fr auto auto;row-gap:0}
 .dcards.rowsync > .dcard{display:grid;grid-template-rows:subgrid;grid-row:span 6;row-gap:0}
+/* 兩欄四張卡是兩排，所以軌道要重複兩次，否則第二排會掉到 auto 的隱式軌道，
+   段落那一格失去 1fr，底部連結就對不齊 */
+.dcards.cols2.rowsync{grid-template-rows:repeat(2, auto auto auto 1fr auto auto)}
+/* row-gap 為了卡內 subgrid 對齊必須是 0，排與排的間距只能用 margin 給回來 */
+.dcards.cols2.rowsync > .dcard:nth-child(n+3){margin-top:20px}
 /* the head is itself two of those rows, so the kicker and the badge each line up */
 .dcards.rowsync .dcard-head{display:grid;grid-template-rows:subgrid;grid-row:span 2;justify-items:start}
 .dcard-head .kicker{margin:0}
@@ -599,7 +621,7 @@ body.pointer::after{opacity:1}
 .railgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4vw,64px);align-items:center}
 .railtext p{max-width:52ch}
 .railfig{margin:0}
-.railfig svg{width:100%;height:auto;max-width:460px;display:block;margin-inline:auto}
+.railfig svg{width:100%;height:auto;max-width:520px;display:block;margin-inline:auto}
 .railfig .figcap{text-align:center;margin-top:10px}
 .raillabel{
   fill:var(--muted);font-family:var(--body);font-size:13px;font-weight:600;
@@ -646,6 +668,9 @@ body.pointer::after{opacity:1}
 }
 .vtl-item.lit .vtl-dot{border-color:var(--accent);background:var(--bg)}
 .vtl-item.now .vtl-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+/* 銀行那三年是這頁最重的證據，節點跟著上色；其餘早期經歷維持灰點 */
+.vtl-item.bank .vtl-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.vtl-item.bank .vtl-year{color:var(--accent-ink)}
 .vtl-body{padding-left:18px}
 .vtl-role{margin:0;font-weight:600;font-size:1.02rem;color:var(--ink)}
 .vtl-org{margin:3px 0 0;font-size:.94rem;color:var(--muted)}
@@ -668,7 +693,8 @@ body.pointer::after{opacity:1}
 .emp-role{position:relative;margin-top:26px}
 .emp-role:first-child{margin-top:0}
 .emp-role::before{
-  content:"";position:absolute;left:-27px;top:7px;width:12px;height:12px;border-radius:50%;
+  /* 圓心要落在軌道中心（.emp-roles 左緣 +5px）：-26 + 10/2 = -21，而 .emp-role 左緣是 +26 */
+  content:"";position:absolute;left:-26px;top:8px;width:10px;height:10px;border-radius:50%;
   background:var(--bg);border:2px solid var(--line-strong);
 }
 .emp-role:first-child::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
@@ -698,7 +724,8 @@ body.pointer::after{opacity:1}
 .vtl-item.edu .vtl-role{font-weight:500;font-style:italic}
 .vtl-roles{list-style:none;margin:12px 0 0;padding:0 0 0 20px;position:relative}
 .vtl-roles::before{
-  content:"";position:absolute;left:3px;top:8px;bottom:10px;width:2px;border-radius:1px;
+  /* 軌道中心對齊圓心：li::before 是 -20px 起算的 9px 圓，圓心在 +4.5px */
+  content:"";position:absolute;left:3.5px;top:8px;bottom:10px;width:2px;border-radius:1px;
   background:linear-gradient(to bottom,var(--accent) 0%,var(--accent) 42%,var(--rail-past) 58%,var(--rail-past) 100%);
 }
 .vtl-roles li{position:relative;margin-top:14px}
@@ -803,17 +830,16 @@ a.dcard h3{color:var(--ink)}
 .dual-k{font-weight:600;color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
 .dual-v{color:var(--ink)}
 .dual-v strong{color:var(--ink);font-weight:700}
-.dual-synthesis{
-  margin:20px 0 36px;padding:18px 24px;
-  background:color-mix(in srgb, var(--accent) 8%, var(--bg-raise));
-  border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  border-radius:14px;display:flex;align-items:center;gap:14px;
+/* 拉引句：一條 accent 直線加放大字。不用卡片陰影，版面分段一律交給髮絲線 */
+.pullquote{margin:26px 0 36px;padding:2px 0 2px 26px;border-left:3px solid var(--accent);max-width:var(--prose)}
+.pullquote .pq-lead{
+  display:block;font-family:var(--body);font-size:.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:10px;
 }
-.dual-synthesis .syn-icon{
-  width:36px;height:36px;border-radius:10px;background:var(--accent);
-  color:#fff;display:grid;place-items:center;flex-shrink:0;font-size:1.1rem;
+.pullquote p{
+  margin:0;font-family:var(--display);font-weight:600;color:var(--ink);
+  font-size:clamp(1.06rem,1.6vw,1.3rem);line-height:1.45;
 }
-.dual-synthesis p{margin:0;font-size:.95rem;line-height:1.48;color:var(--ink)}
 
 /* Recruiter Fast-Pass / Hiring Cheat Sheet */
 .cheat-sheet{
@@ -867,6 +893,11 @@ a.dcard h3{color:var(--ink)}
 .badge-pill.warning{background:rgba(230,81,0,.1);color:#E65100;border-color:rgba(230,81,0,.24)}
 :root[data-theme="dark"] .badge-pill.success{background:rgba(74,222,128,.14);color:#4ADE80;border-color:rgba(74,222,128,.3)}
 :root[data-theme="dark"] .badge-pill.warning{background:rgba(251,146,60,.14);color:#FB923C;border-color:rgba(251,146,60,.3)}
+/* OS 暗色但沒按過切換鈕的訪客沒有 data-theme 屬性，少這組就會拿到亮色版徽章 */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .badge-pill.success{background:rgba(74,222,128,.14);color:#4ADE80;border-color:rgba(74,222,128,.3)}
+  :root:not([data-theme="light"]) .badge-pill.warning{background:rgba(251,146,60,.14);color:#FB923C;border-color:rgba(251,146,60,.3)}
+}
 
 .feature-pills{display:flex;flex-wrap:wrap;align-content:flex-start;align-items:flex-start;gap:6px;margin:12px 0}
 .feature-pill{
@@ -898,6 +929,11 @@ a.dcard h3{color:var(--ink)}
 .ba-card.after .ba-tag{color:#16A34A}
 :root[data-theme="dark"] .ba-card.before .ba-tag{color:#F87171}
 :root[data-theme="dark"] .ba-card.after .ba-tag{color:#4ADE80}
+/* 同上：跟隨 OS 暗色的訪客也要拿到暗色版紅綠 */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .ba-card.before .ba-tag{color:#F87171}
+  :root:not([data-theme="light"]) .ba-card.after .ba-tag{color:#4ADE80}
+}
 
 /* Visual Step Pipeline / Roadmap */
 .step-pipeline{
@@ -915,6 +951,12 @@ a.dcard h3{color:var(--ink)}
 }
 .step-title{font-weight:700;font-size:.94rem;color:var(--ink)}
 .step-desc{font-size:.84rem;color:var(--muted);line-height:1.4}
+/* 限制條件卡沿用 .step-pipeline 的三欄卡片版型。它們之間沒有先後關係，
+   所以不用 .step-num 的編號圓圈，改一個純標籤 */
+.step-item .constraint-k{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--accent-ink);margin-bottom:2px;
+}
 
 /* Visual Diagram Wrapper */
 .diagram-box{
@@ -923,14 +965,88 @@ a.dcard h3{color:var(--ink)}
 }
 .diagram-box svg{width:100%;height:auto;display:block}
 
-/* Concept Bridge */
-.concept-bridge{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  background:var(--bg-raise);border:1px solid var(--line);border-radius:14px;
-  padding:18px 22px;margin:20px 0;box-shadow:var(--shadow);
+/* 概念對映：左欄音樂、右欄金融，一列一組配對，中間髮絲箭頭 */
+.xwalk{margin:22px 0 10px;border-top:1px solid var(--line)}
+.xwalk-row{display:grid;grid-template-columns:1fr 56px 1fr;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.xwalk-row.xwalk-head{padding:11px 0}
+.xwalk-head span{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);font-weight:600}
+.xwalk-row b{font-weight:600;font-size:.97rem;color:var(--ink);line-height:1.45}
+.xwalk-arrow{position:relative;height:1px;margin:0 14px;background:var(--line-strong)}
+.xwalk-arrow::after{
+  content:"";position:absolute;right:-1px;top:-3.5px;
+  border-left:7px solid var(--accent);
+  border-top:4px solid transparent;border-bottom:4px solid transparent;
 }
-.bridge-node{flex:1;text-align:center;padding:8px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
-.bridge-arrow{color:var(--accent);font-size:1.4rem;font-weight:700;flex-shrink:0}
+
+/* CV 經歷時間軸：左欄日期與軌道，右欄放原本的整塊內容 */
+.cvtl{list-style:none;margin:26px 0 0;padding:0}
+.cvtl-item{position:relative;display:grid;grid-template-columns:132px minmax(0,1fr);padding:0 0 34px}
+.cvtl-item:last-child{padding-bottom:0}
+/* 軌道逐項畫、最後一項不畫，線尾就不會突出在最後一個圓點下面 */
+.cvtl-item::before{content:"";position:absolute;left:123px;top:10px;bottom:-10px;width:2px;background:var(--line)}
+.cvtl-item:last-child::before{display:none}
+.cvtl-when{
+  margin:0;padding-right:26px;text-align:right;
+  font-family:var(--display);font-weight:700;font-size:.9rem;line-height:1.35;
+  font-variant-numeric:tabular-nums;color:var(--muted);
+}
+.cvtl-dot{
+  position:absolute;left:118px;top:4px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--line-strong);
+}
+.cvtl-item.now .cvtl-dot,.cvtl-item.bank .cvtl-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.cvtl-item.now .cvtl-when,.cvtl-item.bank .cvtl-when{color:var(--accent-ink)}
+.cvtl-body{padding-left:26px;min-width:0}
+.cvtl-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.cvtl-head h3{margin:0;font-size:1.06rem}
+.cvtl-org{margin:5px 0 0;font-size:.9rem;color:var(--muted)}
+/* 一行量化重點：招募者只掃這行，細節 bullet 留給用人主管。
+   不加左邊框 — 這裡是時間軸，任何直線都會被讀成畫歪掉的軌道 */
+.cvtl-impact{
+  margin:12px 0 0;font-size:1.02rem;font-weight:600;color:var(--ink);line-height:1.5;
+}
+
+/* 長文錨點目錄：純文字加上下髮絲線，不做成卡片 */
+.toc{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:28px 0 34px}
+.toc-k{margin:0 0 11px;font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);font-weight:600}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:9px 28px;counter-reset:toc}
+.toc li{counter-increment:toc;font-size:.93rem}
+.toc li::before{content:counter(toc) ". ";color:var(--muted);font-variant-numeric:tabular-nums}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+.toc a:hover{color:var(--accent-ink);border-bottom-color:var(--accent)}
+/* 錨點跳過去時別被固定頁首蓋住，數值跟 .glance 的 sticky top 對齊 */
+.longform h2[id]{scroll-margin-top:96px}
+/* 每節開頭的粗體結論句 */
+.longform .takeaway{font-weight:700;color:var(--ink)}
+
+/* 算式步驟條：一步一行，底色隨步驟漸深，最後一行是結果 */
+.stepstrip{list-style:none;margin:20px 0;padding:0;counter-reset:ss}
+.stepstrip li{
+  counter-increment:ss;display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:14px;
+  align-items:baseline;padding:13px 16px;border:1px solid var(--line);border-radius:10px;margin-top:8px;
+}
+.stepstrip li::before{
+  content:counter(ss);font-family:var(--display);font-weight:700;
+  color:var(--accent-ink);font-variant-numeric:tabular-nums;
+}
+.stepstrip li:nth-child(1){background:color-mix(in srgb, var(--accent) 3%, var(--bg-raise))}
+.stepstrip li:nth-child(2){background:color-mix(in srgb, var(--accent) 6%, var(--bg-raise))}
+.stepstrip li:nth-child(3){background:color-mix(in srgb, var(--accent) 9%, var(--bg-raise))}
+.stepstrip li:nth-child(4){background:color-mix(in srgb, var(--accent) 13%, var(--bg-raise))}
+.stepstrip li:nth-child(5){background:color-mix(in srgb, var(--accent) 18%, var(--bg-raise));border-color:color-mix(in srgb, var(--accent) 40%, transparent)}
+.ss-k{font-size:.92rem;color:var(--ink);line-height:1.45}
+.ss-v{font-family:var(--display);font-weight:700;font-size:.98rem;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.stepstrip li:last-child .ss-v{color:var(--accent-ink)}
+
+/* 兩格邊界圖：中間那條虛線就是「兩個 Firebase 專案」的分界，純 CSS 不畫 SVG */
+.boundary{display:grid;grid-template-columns:1fr 34px 1fr;align-items:stretch;margin:22px 0 10px}
+.boundary-box{border:1px solid var(--line);border-radius:12px;background:var(--bg-raise);padding:18px 20px}
+.boundary-k{
+  display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--accent-ink);margin-bottom:8px;
+}
+.boundary-box p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.5}
+.boundary-line{align-self:stretch;justify-self:center;width:0;border-left:2px dashed var(--line-strong)}
 
 /* Mini Card Grid (for writing/articles) */
 .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
@@ -952,7 +1068,11 @@ a.dcard h3{color:var(--ink)}
   background:var(--bg-raise);border:1px solid var(--line);border-radius:14px;
   padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;
 }
-.radar-card .r-tag{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink);white-space:nowrap}
+.radar-card .r-tag{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+/* 圓點只標狀態，文字本身已經講清楚，所以 aria-hidden 不補文字備援 */
+.r-dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;background:var(--muted)}
+.r-dot.live{background:var(--ok)}
+.r-dot.soon{background:var(--warn)}
 .radar-card .r-val{font-size:.94rem;color:var(--ink);line-height:1.4;margin:0}
 
 /* routes */
@@ -982,16 +1102,36 @@ a.dcard h3{color:var(--ink)}
   .case-hero-text{padding:44px 0 12px}
   .case-hero-text .lede{max-width:none}
   .readers,.dcards,.dcards.cols2,.railgrid,.sec-split,.dual-matrix,.skill-matrix,.metric-strip,.step-pipeline,.mini-grid,.status-radar,.before-after-grid{grid-template-columns:1fr}
-  .dcards.rowsync{grid-template-rows:none;row-gap:20px}
+  /* cols2 版本特異度較高，桌機那三條規則要在這裡逐一壓回來，否則手機殘留 12 條軌道與多餘 margin */
+  .dcards.rowsync,.dcards.cols2.rowsync{grid-template-rows:none;row-gap:20px}
   .dcards.rowsync > .dcard{display:flex;grid-row:auto}
+  .dcards.cols2.rowsync > .dcard:nth-child(n+3){margin-top:0}
   .dcards.rowsync .dcard-head{display:block;grid-row:auto}
   .dcard-head .kicker{margin:0 0 8px}
   .dual-row{grid-template-columns:90px 1fr}
-  .concept-bridge{flex-direction:column;gap:8px}
-  .bridge-arrow{transform:rotate(90deg)}
+  .stepstrip li{grid-template-columns:26px minmax(0,1fr);row-gap:6px}
+  .ss-v{grid-column:2;text-align:left}
+  .boundary{grid-template-columns:1fr;row-gap:0}
+  /* 單欄時分界線轉成橫的，虛線語意才不會斷掉 */
+  .boundary-line{width:auto;align-self:auto;justify-self:stretch;height:0;border-left:0;border-top:2px dashed var(--line-strong);margin:16px 0}
+  .cvtl-item{grid-template-columns:1fr;padding-left:26px}
+  .cvtl-item::before{left:5px}
+  .cvtl-dot{left:0;top:6px}
+  .cvtl-when{text-align:left;padding:0 0 8px}
+  .cvtl-body{padding-left:0}
+  .xwalk-head{display:none}
+  .xwalk-row{grid-template-columns:1fr;justify-items:start;padding:14px 0}
+  /* 不用 rotate：transform 不佔 layout box，旋轉後的線會壓到下一列文字。改畫真的直線 */
+  .xwalk-arrow{width:1px;height:24px;margin:6px 0 6px 4px}
+  .xwalk-arrow::after{
+    right:auto;left:-3.5px;top:auto;bottom:-1px;
+    border-left:4px solid transparent;border-right:4px solid transparent;
+    border-top:7px solid var(--accent);border-bottom:0;
+  }
   .railfig{margin-top:26px}
   .shots{grid-template-columns:repeat(3,1fr);gap:14px}
-  .nums{grid-template-columns:repeat(3,1fr);gap:18px}
+  .nums{grid-template-columns:repeat(2,1fr);row-gap:32px}
+  .num-cell:nth-child(odd){border-left:0;padding-left:0}
   .results,.results.cols4{grid-template-columns:repeat(2,1fr)}
   .tl-items{grid-template-columns:repeat(2,1fr);gap:26px 12px}
   .tl-rail{display:none}
@@ -1009,7 +1149,8 @@ a.dcard h3{color:var(--ink)}
   .cheat-sheet th,.cheat-sheet td,.decision-table th,.decision-table td{padding:12px 14px}
 }
 @media (max-width:460px){
-  .nums{grid-template-columns:1fr;gap:26px}
+  .nums{grid-template-columns:1fr;row-gap:26px}
+  .num-cell{border-left:0;padding-left:0}
   .num-cell .n{font-size:3rem}
   .shots{grid-template-columns:repeat(2,1fr)}
   .case-hero-media{gap:24px}
@@ -1032,9 +1173,35 @@ a.dcard h3{color:var(--ink)}
   .flowline.draw{stroke-dashoffset:0 !important}
 }
 @media print{
+  @page{margin:14mm}
   .site-header,.site-footer,.btn-row,.theme-toggle,.marquee{display:none !important}
   body::before,body::after{display:none}
   body{background:#fff;color:#000}
-  .route{display:none !important}
-  .route.active{display:block !important}
+  /* 一頁只有一個 .route。.active 是 JS 加的，靠它決定列印可見度的話，
+     JS 沒跑完就按列印會印出一整張白紙。這裡無條件展開 */
+  .route{display:block !important}
+
+  /* 捲動才現身的區塊在列印時不會被觸發，全部強制展開，否則整頁下半段印出來是空白 */
+  .rv,.clipin,.stat-in,.num-cell,.cvtl-item,.vtl-item,.org-node,.split-line > i{
+    opacity:1 !important;transform:none !important;clip-path:none !important;filter:none !important;
+  }
+  /* 描線動畫的末狀態也要鎖住：org 圖連線、金流圖、ledger 打勾、時間軸填充 */
+  .flowline.draw,.ledger .tick path{stroke-dashoffset:0 !important}
+  .tl-rail i{transform:scaleX(1) !important}
+  .vtl-rail i{transform:scaleY(1) !important}
+  /* 紙上不需要卡片感與底色，留框線就夠了 */
+  *{box-shadow:none !important}
+  .metric-strip,.skill-cat,.cheat-sheet,.radar-card,.dual-col,.decision-table{
+    background:#fff !important;border-color:#999 !important;
+  }
+  .cheat-sheet th,.decision-table th{background:#F2F2F2 !important;color:#000 !important}
+  .badge-pill,.skill-chip,.feature-pill{background:#fff !important;color:#000 !important;border:1px solid #999 !important}
+  .pullquote{border-left-color:#000 !important}
+  .cvtl-item::before,.cvtl-dot{background:#000 !important;border-color:#000 !important}
+  a{color:#000 !important;text-decoration:none}
+  /* 表格在窄視窗會變成橫向捲動容器，紙上沒有捲動這回事，收不回來就會被裁掉 */
+  .cheat-sheet,.decision-table{display:table !important;overflow:visible !important;width:100% !important}
+  /* 只擋比一頁小的區塊，整段經歷不擋，否則長的那段會擠出一整頁空白 */
+  .emp-role,.skill-cat,.radar-card{break-inside:avoid;page-break-inside:avoid}
+  h1,h2,h3,h4{break-after:avoid;page-break-after:avoid}
 }

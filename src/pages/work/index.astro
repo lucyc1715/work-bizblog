@@ -5,12 +5,13 @@ import Base from "../../layouts/Base.astro";
 <section class="route">
   <div class="wrap section">
     <p class="kicker">Work</p>
-    <h1 data-split>These are the pieces of work I would want to be judged on</h1>
+    <h1 data-split>Both sides of the&nbsp;table.</h1>
     <div class="lead-grid" style="margin-top:26px">
-      <p class="lede" style="margin:0">I have sat on both sides of a deployed engineering engagement. I ran vendor delivery inside a licensed bank, where the requirements belonged to someone else and the deadline belonged to a regulator. Then I built and shipped my own product, where every decision and every consequence was mine.</p>
+      <p class="lede" style="margin:0">I ran vendor delivery inside a licensed bank, where the requirements belonged to someone else and the deadline belonged to a regulator. Then I built my own product, where every consequence was mine.</p>
       <aside class="glance rv">
         <h2>What each case shows</h2>
         <dl>
+          <dt>Agent engineering</dt><dd>The system that let one person ship the rest</dd>
           <dt>Course Kit</dt><dd>Shipping a whole product alone, payments included</dd>
           <dt>Vibe Code Home</dt><dd>Designing the layer other products sit on</dd>
           <dt>Licensed bank</dt><dd>Delivering into rules and vendors I did not control</dd>
@@ -23,7 +24,22 @@ import Base from "../../layouts/Base.astro";
       </aside>
     </div>
 
-    <div class="dcards rowsync" style="margin-top:40px">
+    <div class="dcards cols2 rowsync" style="margin-top:40px">
+      <a class="dcard spot rv" href="/work/agent-engineering">
+        <div class="dcard-head">
+          <p class="kicker">Underneath the other three &middot; 2025 to now</p>
+          <span class="badge-pill">Agent Engineering</span>
+        </div>
+        <h3>I wrote the rules my agents work under</h3>
+        <p>Thirteen releases in eight months across three platforms, built by one person. The system that made that possible: a written doctrine, a routing ladder with a ceiling, blind verification, and hooks the model does not get a vote on.</p>
+        <div class="feature-pills">
+          <span class="feature-pill">617 Lines of Doctrine</span>
+          <span class="feature-pill">Blind Verification</span>
+          <span class="feature-pill">5-Attempt Ceiling</span>
+        </div>
+        <p class="links-line" style="color:var(--accent-ink)">Read case study &rarr;</p>
+      </a>
+
       <a class="dcard spot rv" href="/work/coursekit">
         <div class="dcard-head">
           <p class="kicker">Founder &middot; 2025 to now</p>
@@ -45,7 +61,7 @@ import Base from "../../layouts/Base.astro";
           <span class="badge-pill">Ecosystem Layer</span>
         </div>
         <h3>Vibe Code Home</h3>
-        <p>The membership and payments layer Course Kit plugs into. An ecosystem built so that a maker who can write code can also sell what they make.</p>
+        <p>The ecosystem layer Course Kit plugs into. Built so that a maker who can write code can also sell what they make.</p>
         <div class="feature-pills">
           <span class="feature-pill">Dual-Firebase Architecture</span>
           <span class="feature-pill">Highest-Tier Entitlement</span>

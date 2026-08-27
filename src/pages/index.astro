@@ -10,8 +10,8 @@ import Base from "../layouts/Base.astro";
 
     <div class="hero-text">
       <p class="kicker">Lucy Chen</p>
-      <h1 data-split>I have led nine engineers, and shipped a product with no team at&nbsp;all</h1>
-      <p class="hero-lede">I have spent ten years in software, three of them inside a licensed bank where I led the team that delivered it, and I have taken a product from zero to paying users on my own.</p>
+      <h1 data-split>I have built software inside a bank. And I have built a product on my&nbsp;own.</h1>
+      <p class="hero-lede">Ten years in software. Three inside a licensed bank. One product, zero to paying users, alone.</p>
       <p class="avail"><span class="pulse"></span><span data-site="open">Open to Forward Deployed Engineer roles in Dublin, Amsterdam, Tallinn or EU remote. Available in 4 weeks.</span></p>
       <div class="btn-row">
         <a class="btn primary" href="/cv">CV</a>
@@ -28,6 +28,13 @@ import Base from "../layouts/Base.astro";
   </div>
 
   <div class="wrap section">
+    <div class="nums">
+      <div class="num-cell rv"><span class="n"><span class="cnt" data-to="10">10</span></span><span class="l">yrs in software</span></div>
+      <div class="num-cell rv"><span class="n"><span class="cnt" data-to="3">3</span></span><span class="l">yrs in a licensed bank</span></div>
+      <div class="num-cell rv"><span class="n"><span class="cnt" data-to="350">350</span>+</span><span class="l">paying users, shipped solo</span></div>
+      <div class="num-cell rv"><span class="n"><span class="cnt" data-to="9">9</span>+<span class="cnt" data-to="5">5</span></span><span class="l">engineers and vendors led</span></div>
+    </div>
+
     <div class="readers">
       <div class="rcard spot rv">
         <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:10px">
@@ -58,15 +65,6 @@ import Base from "../layouts/Base.astro";
     </div>
   </div>
 
-  <div class="wrap">
-    <div class="nums">
-      <div class="num-cell rv"><span class="n"><span class="cnt" data-to="350">350</span>+</span><span class="l">users</span></div>
-      <div class="num-cell rv"><span class="n"><span class="cnt" data-to="100">100</span>+</span><span class="l">monthly actives</span></div>
-      <div class="num-cell rv"><span class="n"><span class="cnt" data-to="3">3</span></span><span class="l">payment rails</span></div>
-    </div>
-  </div>
-
-  <!-- ---------- the one dark band: bank ledger ---------- -->
   <div class="band spot" id="bandSec">
     <div class="wrap">
       <p class="kicker">Inside a licensed bank</p>
@@ -138,7 +136,36 @@ import Base from "../layouts/Base.astro";
   <div class="wrap section">
     <p class="kicker">Selected work</p>
     <div class="stack">
-      <a class="scard spot" style="--i:0" href="/work/coursekit">
+      <a class="scard spot" style="--i:0" href="/work/agent-engineering">
+        <div class="scard-body">
+          <p class="meta">Underneath the other three &middot; 2025 to now</p>
+          <h3>Agent engineering</h3>
+          <p class="d">The rules my agents work under, and the system that let one person ship the rest of this page.</p>
+          <div class="feature-pills">
+            <span class="feature-pill">617 Lines of Doctrine</span>
+            <span class="feature-pill">Blind Verification</span>
+            <span class="feature-pill">5-Attempt Ceiling</span>
+          </div>
+          <ul class="scard-points">
+            <li>A written doctrine, not a prompt I retype every time</li>
+            <li>A routing ladder with a ceiling, so a stuck task escalates instead of looping</li>
+            <li>Hooks the model does not get a vote on</li>
+          </ul>
+          <span class="more">Read the case <span>&rarr;</span></span>
+        </div>
+        <div class="scard-media ledgerbox">
+          <div style="width:100%">
+            <ul class="minilist">
+              <li><span class="mk">Doctrine</span><span class="mv">617 lines</span></li>
+              <li><span class="mk">Memory docs</span><span class="mv">136</span></li>
+              <li><span class="mk">Attempt ceiling</span><span class="mv">5</span></li>
+            </ul>
+            <div class="bigstat"><span class="n"><span class="cnt" data-to="13">13</span></span><span class="l">releases in 8 months</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="scard spot" style="--i:1" href="/work/coursekit">
         <div class="scard-body">
           <p class="meta">Founder &middot; 2025 to now</p>
           <h3>Course Kit</h3>
@@ -163,7 +190,7 @@ import Base from "../layouts/Base.astro";
         </div>
       </a>
 
-      <a class="scard spot" style="--i:1" href="/work/vibe-code-home">
+      <a class="scard spot" style="--i:2" href="/work/vibe-code-home">
         <div class="scard-body">
           <p class="meta">The platform underneath &middot; 2025 to now</p>
           <h3>Vibe Code Home</h3>
@@ -188,7 +215,7 @@ import Base from "../layouts/Base.astro";
         </div>
       </a>
 
-      <a class="scard spot" style="--i:2" href="/work/licensed-bank-delivery">
+      <a class="scard spot" style="--i:3" href="/work/licensed-bank-delivery">
         <div class="scard-body">
           <p class="meta">Rakuten Bank &middot; 2021 to 2024</p>
           <h3>Delivering into a licensed bank</h3>
@@ -218,15 +245,15 @@ import Base from "../layouts/Base.astro";
     <p class="kicker">Now, August 2026</p>
     <div class="status-radar rv">
       <div class="radar-card">
-        <span class="r-tag">Shipping</span>
+        <span class="r-tag"><span class="r-dot soon" aria-hidden="true"></span>Shipping</span>
         <p class="r-val">Course Kit personal plan, mid September 2026.</p>
       </div>
       <div class="radar-card">
-        <span class="r-tag">Current Role</span>
+        <span class="r-tag"><span class="r-dot live" aria-hidden="true"></span>Current Role</span>
         <p class="r-val">Frontend engineering at FintechLife in Taipei.</p>
       </div>
       <div class="radar-card">
-        <span class="r-tag">Availability</span>
+        <span class="r-tag"><span class="r-dot live" aria-hidden="true"></span>Availability</span>
         <p class="r-val">Open to Forward Deployed Engineer roles in <span data-site="citiesAnd">Dublin, Amsterdam and Tallinn</span>.</p>
       </div>
     </div>

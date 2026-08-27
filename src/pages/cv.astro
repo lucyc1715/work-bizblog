@@ -5,12 +5,11 @@ import Base from "../layouts/Base.astro";
 <section class="route">
   <div class="wrap section">
     <p class="kicker">CV</p>
-    <h1 data-split>Lucy Chen</h1>
-    <p class="lede prose">Product engineer. I build customer-facing software for regulated finance. Ten years in software, three of them delivering inside a licensed bank, then I shipped my own SaaS solo to 350+ users on iOS, Android and web.</p>
+    <h1 data-split>Ten years, in timeline&nbsp;form.</h1>
+    <p class="lede prose">Every line below shipped to production. Ten years of it, three of them inside a licensed bank, then one product taken from zero to paying users alone.</p>
     <p class="avail" style="margin:14px 0 4px"><span class="pulse"></span><span data-site="open">Open to Forward Deployed Engineer roles in Dublin, Amsterdam, Tallinn or EU remote. Available in 4 weeks.</span></p>
     <p class="links-line"><a href="mailto:lucychen.biz@gmail.com">lucychen.biz@gmail.com</a> &middot; <a href="https://linkedin.com/in/lucychen-ai" target="_blank" rel="noopener">linkedin.com/in/lucychen-ai</a> &middot; <a href="https://github.com/lucyc1715" target="_blank" rel="noopener">github.com/lucyc1715</a> &middot; Taipei, relocating to the EU</p>
 
-    <!-- 4-Metric Impact Strip -->
     <div class="metric-strip rv">
       <div class="m-cell">
         <span class="m-num">10 Years</span>
@@ -30,13 +29,12 @@ import Base from "../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Skills Matrix (Categorized Chips) -->
     <div class="case-sec">
       <h2 class="rv">Skills &amp; Technology Stack</h2>
       <div class="skill-matrix rv">
         <div class="skill-cat">
           <div class="skill-cat-head">
-            <h4 class="skill-cat-title"><span>🎨</span> Frontend &amp; Mobile</h4>
+            <h4 class="skill-cat-title"><svg class="pill-i" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.75" y="1.75" width="7.5" height="12.5" rx="1.2"/><path d="M4.25 12.25h2.5"/><path d="M11.75 4.5v7.25"/><path d="M10.25 4.5h3l-1.5-2.75z"/></svg> Frontend &amp; Mobile</h4>
             <span class="badge-pill">7 Technologies</span>
           </div>
           <div class="skill-chips">
@@ -52,7 +50,7 @@ import Base from "../layouts/Base.astro";
 
         <div class="skill-cat">
           <div class="skill-cat-head">
-            <h4 class="skill-cat-title"><span>☁️</span> Cloud &amp; Backend</h4>
+            <h4 class="skill-cat-title"><svg class="pill-i" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 9.25a2.5 2.5 0 0 1 .35-4.98 3.4 3.4 0 0 1 6.4.98 2.25 2.25 0 0 1 .35 4.44"/><rect x="4.5" y="10.5" width="7" height="3.25" rx=".9"/><path d="M6.25 12.1h.6"/></svg> Cloud &amp; Backend</h4>
             <span class="badge-pill">6 Technologies</span>
           </div>
           <div class="skill-chips">
@@ -67,7 +65,7 @@ import Base from "../layouts/Base.astro";
 
         <div class="skill-cat">
           <div class="skill-cat-head">
-            <h4 class="skill-cat-title"><span>💳</span> Fintech, Identity &amp; Security</h4>
+            <h4 class="skill-cat-title"><svg class="pill-i" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3.25" width="13" height="9.5" rx="1.4"/><path d="M1.5 6.75h13"/><path d="M4 10.25h2.75"/></svg> Fintech, Identity &amp; Security</h4>
             <span class="badge-pill">7 Domains</span>
           </div>
           <div class="skill-chips">
@@ -83,7 +81,7 @@ import Base from "../layouts/Base.astro";
 
         <div class="skill-cat">
           <div class="skill-cat-head">
-            <h4 class="skill-cat-title"><span>🤖</span> AI Workflows &amp; Governance</h4>
+            <h4 class="skill-cat-title"><svg class="pill-i" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="3.25" r="1.6"/><circle cx="3.5" cy="11.5" r="1.6"/><circle cx="12.5" cy="11.5" r="1.6"/><path d="M6.9 4.6 4.6 10.15M9.1 4.6l2.3 5.55M5.1 11.5h5.8"/></svg> AI Workflows &amp; Governance</h4>
             <span class="badge-pill">6 Practices</span>
           </div>
           <div class="skill-chips">
@@ -98,54 +96,69 @@ import Base from "../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Experience Section with Badges -->
     <div class="case-sec">
       <h2 class="rv">Experience</h2>
 
-      <div class="rv" style="margin-bottom:32px">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <h3 style="margin:0">Founder &amp; Product Engineer &middot; LZpreneur O&Uuml;, Estonia (remote)</h3>
+      <ol class="cvtl">
+      <li class="cvtl-item now rv">
+        <span class="cvtl-dot" aria-hidden="true"></span>
+        <p class="cvtl-when">Nov 2025<br>to present</p>
+        <div class="cvtl-body">
+        <div class="cvtl-head">
+          <h3>Founder &amp; Product Engineer &middot; LZpreneur O&Uuml;, Estonia (remote)</h3>
           <span class="badge-pill success">Solo 0-to-1 Shipper</span>
         </div>
-        <p class="kicker" style="margin:6px 0 12px">Nov 2025 &ndash; present</p>
+        <p class="cvtl-impact">Shipped Course Kit alone to 350+ users on iOS, Android and web, with three payment rails live in production.</p>
         <ul class="now-list" style="max-width:none">
           <li><span class="dot"></span><span><strong>Solo Full-Stack Delivery</strong> &mdash; Built and shipped Course Kit alone: Flutter iOS &amp; Android apps plus web storefront, with Apple IAP, Google Play IAP, and Stripe live in production.</span></li>
           <li><span class="dot"></span><span><strong>Unified Entitlement Architecture</strong> &mdash; Cloud Functions normalise all three payment rails into a single Firestore entitlement schema. Conflicts resolve to the highest tier rather than last write, and additive-only schema design enabled a three-tier pricing model with zero regressions.</span></li>
-          <li><span class="dot"></span><span><strong>Bootstrapped Traction</strong> &mdash; 8 releases in 8 months across 3 platforms. Acquired 350+ users and 100+ MAU via organic SEO ($0 ad spend), converting into paying customers. Operates alongside full-time employment with zero IP overlap.</span></li>
+          <li><span class="dot"></span><span><strong>Bootstrapped Traction</strong> &mdash; 13 releases in 8 months across 3 platforms. Acquired 350+ users and 100+ MAU via organic SEO ($0 ad spend), converting into paying customers. Operates alongside full-time employment with zero IP overlap.</span></li>
         </ul>
         <p class="links-line"><a href="/work/coursekit">Course Kit case study &rarr;</a> &middot; <a href="/work/vibe-code-home">Vibe Code Home case study &rarr;</a></p>
-      </div>
+        </div>
+      </li>
 
-      <div class="rv" style="margin-bottom:32px">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <h3 style="margin:0">Frontend Engineer &middot; FintechLife, Taipei</h3>
+      <li class="cvtl-item now rv">
+        <span class="cvtl-dot" aria-hidden="true"></span>
+        <p class="cvtl-when">Nov 2024<br>to present</p>
+        <div class="cvtl-body">
+        <div class="cvtl-head">
+          <h3>Frontend Engineer &middot; FintechLife, Taipei</h3>
           <span class="badge-pill">Fintech Compliance</span>
         </div>
-        <p class="kicker" style="margin:6px 0 12px">Nov 2024 &ndash; present</p>
+        <p class="cvtl-impact">Cut feature delivery from 3 days to 1 day, on a platform that passed its external PCI DSS assessment.</p>
         <ul class="now-list" style="max-width:none">
           <li><span class="dot"></span><span><strong>PCI DSS Payload Encryption</strong> &mdash; Implemented RSA payload encryption in Vue 3 to meet strict PCI DSS requirements, owning client-side key lifecycle with backend teams. Platform passed external PCI DSS assessment.</span></li>
+          <li><span class="dot"></span><span><strong>Monorepo Consolidation</strong> &mdash; Merged two large Vue admin products, 500+ components between them, into a single monorepo. Shared components and build config are now updated once instead of twice.</span></li>
           <li><span class="dot"></span><span><strong>AI-Assisted Workflow</strong> &mdash; Architected AI-augmented engineering workflows in Claude with layered style conventions and automated quality hooks, accelerating feature delivery from 3 days to 1 day.</span></li>
           <li><span class="dot"></span><span><strong>Global Integration Portal</strong> &mdash; Defined REST API integration specifications with cross-border engineering teams across Lithuania, the US, and Europe. Shipped developer portal in 6 weeks with automated multi-locale Playwright regression tests.</span></li>
         </ul>
-      </div>
+        </div>
+      </li>
 
-      <div class="rv" style="margin-bottom:32px">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <h3 style="margin:0">Working Holiday &middot; London, United Kingdom</h3>
+      <li class="cvtl-item rv">
+        <span class="cvtl-dot" aria-hidden="true"></span>
+        <p class="cvtl-when">Jun to Sep<br>2024</p>
+        <div class="cvtl-body">
+        <div class="cvtl-head">
+          <h3>Working Holiday &middot; London, United Kingdom</h3>
           <span class="badge-pill">UK Experience</span>
         </div>
-        <p class="kicker" style="margin:6px 0 12px">Jun &ndash; Sep 2024 &middot; UK Youth Mobility Scheme</p>
-        <ul class="now-list" style="max-width:none">
-          <li><span class="dot"></span><span>Delivered real-time frontend interfaces for a London gaming platform using React, TypeScript, Redux, and WebSocket.</span></li>
-        </ul>
-      </div>
+        <p class="cvtl-org">UK Youth Mobility Scheme</p>
+        <p class="cvtl-impact">Built real-time interfaces for a London gaming platform in React, TypeScript, Redux and WebSocket.</p>
+        </div>
+      </li>
 
-      <div class="rv emp" style="margin-bottom:32px">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <h3 class="emp-co" style="margin:0">Rakuten International Commercial Bank, Taipei</h3>
+      <li class="cvtl-item bank rv emp">
+        <span class="cvtl-dot" aria-hidden="true"></span>
+        <p class="cvtl-when">May 2021<br>to May 2024</p>
+        <div class="cvtl-body">
+        <div class="cvtl-head">
+          <h3 class="emp-co">Rakuten International Commercial Bank, Taipei</h3>
           <span class="badge-pill success">Promoted to Lead in 18 Mos</span>
         </div>
-        <p class="kicker" style="margin:6px 0 10px">May 2021 &ndash; May 2024 &middot; Taiwan's first digital-only bank</p>
+        <p class="cvtl-org">Taiwan's first digital-only bank</p>
+        <p class="cvtl-impact">Led 9 engineers and 5 vendors to 100% on-time quarterly delivery, and closed 15 of 15 PwC audit findings.</p>
 
         <div class="emp-roles">
           <div class="emp-role">
@@ -170,31 +183,50 @@ import Base from "../layouts/Base.astro";
         </div>
 
         <p class="links-line"><a href="/work/licensed-bank-delivery">Licensed bank delivery case study &rarr;</a></p>
-      </div>
+        </div>
+      </li>
 
-      <div class="rv" style="margin-bottom:30px">
-        <h3>Frontend Engineer &middot; Shengsen Cloud Technology, Taipei</h3>
-        <p class="kicker" style="margin:6px 0 10px">Nov 2020 &ndash; Mar 2021 &middot; On site at Far Eastern International Bank</p>
+      <li class="cvtl-item rv">
+        <span class="cvtl-dot" aria-hidden="true"></span>
+        <p class="cvtl-when">Nov 2020<br>to Mar 2021</p>
+        <div class="cvtl-body">
+        <div class="cvtl-head">
+          <h3>Frontend Engineer &middot; Shengsen Cloud Technology, Taipei</h3>
+        </div>
+        <p class="cvtl-org">On site at Far Eastern International Bank</p>
+        <p class="cvtl-impact">Cut manual team coordination by 40% with a DHL-integrated logistics system in React and TypeScript.</p>
+        </div>
+      </li>
+
+      <li class="cvtl-item rv">
+        <span class="cvtl-dot" aria-hidden="true"></span>
+        <p class="cvtl-when">Oct 2016<br>to Jun 2019</p>
+        <div class="cvtl-body">
+        <div class="cvtl-head">
+          <h3>Project Coordinator &middot; Wistron ITS, Taipei</h3>
+        </div>
+        <p class="cvtl-org">On site at Foxconn H2U</p>
+        <p class="cvtl-impact">Lifted system test coverage by 30% with 200+ manual and automated test cases.</p>
         <ul class="now-list" style="max-width:none">
-          <li><span class="dot"></span><span>Designed and built a logistics management system in React and TypeScript, integrating DHL APIs and cutting manual team coordination by 40%.</span></li>
+          <li><span class="dot"></span><span>Coordinated delivery between PMs, SAs, and engineering teams.</span></li>
         </ul>
-      </div>
+        </div>
+      </li>
 
-      <div class="rv" style="margin-bottom:30px">
-        <h3>Project Coordinator &middot; Wistron ITS, Taipei</h3>
-        <p class="kicker" style="margin:6px 0 10px">Oct 2016 &ndash; Jun 2019 &middot; On site at Foxconn H2U</p>
-        <ul class="now-list" style="max-width:none">
-          <li><span class="dot"></span><span>Coordinated delivery between PMs, SAs, and engineering teams. Authored 200+ manual and automated test cases, lifting system test coverage by 30%.</span></li>
-        </ul>
-      </div>
-
-      <div class="rv">
-        <h3>Software Engineer &middot; Smart Catch Inc., Taipei</h3>
-        <p class="kicker" style="margin:6px 0 10px">Aug 2015 &ndash; Oct 2016 &middot; Java, Spring MVC, MySQL, REST</p>
-      </div>
+      <li class="cvtl-item rv">
+        <span class="cvtl-dot" aria-hidden="true"></span>
+        <p class="cvtl-when">Aug 2015<br>to Oct 2016</p>
+        <div class="cvtl-body">
+        <div class="cvtl-head">
+          <h3>Software Engineer &middot; Smart Catch Inc., Taipei</h3>
+        </div>
+        <p class="cvtl-org">Java, Spring MVC, MySQL, REST</p>
+        <p class="cvtl-impact">Built the back end, front end and shared modules of a parking payment system for New Taipei City.</p>
+        </div>
+      </li>
+      </ol>
     </div>
 
-    <!-- Certifications and Education -->
     <div class="case-sec">
       <h2 class="rv">Certifications &amp; Education</h2>
       <table class="cheat-sheet rv">
@@ -230,7 +262,6 @@ import Base from "../layouts/Base.astro";
       </table>
     </div>
 
-    <!-- Hiring & Logistics Cheat Sheet -->
     <div class="case-sec">
       <h2 class="rv">Recruiter &amp; Hiring FAQ Cheat Sheet</h2>
       <table class="cheat-sheet rv">
@@ -249,7 +280,7 @@ import Base from "../layouts/Base.astro";
           </tr>
           <tr>
             <td><strong>Relocation Targets</strong></td>
-            <td><span class="badge-pill">Dublin / Amsterdam / Tallinn</span></td>
+            <td><span class="badge-pill"><span data-site="cities">Dublin, Amsterdam, Tallinn</span></span></td>
             <td>Open to on-site work, customer travel, and hybrid/remote setups in Europe.</td>
           </tr>
           <tr>

@@ -8,8 +8,8 @@ import Base from "../../layouts/Base.astro";
     <span class="case-hero-floor" aria-hidden="true"></span>
     <div class="case-hero-text">
       <p class="kicker">Rakuten International Commercial Bank</p>
-      <h1 data-split>Delivering into a licensed bank</h1>
-      <p class="lede">Three years inside Taiwan's first digital-only bank, on both sides of the vendor relationship. Senior Frontend Engineer, then Tech Team Leader.</p>
+      <h1 data-split>Three years inside a licensed&nbsp;bank.</h1>
+      <p class="lede">Regulator-set rules, five vendors I could not manage, and an audit at the end. Here is what my team shipped anyway.</p>
     </div>
     <div class="case-hero-media">
       <div class="stagewrap">
@@ -18,7 +18,6 @@ import Base from "../../layouts/Base.astro";
           <li><span class="mk">Mobile ID device binding</span><span class="mv">4 modules</span></li>
           <li><span class="mk">PwC security findings</span><span class="mv">15 closed</span></li>
           <li><span class="mk">Quarterly delivery</span><span class="mv">100% on time</span></li>
-          <li><span class="mk">Time to first PR</span><span class="mv">3 weeks &rarr; 2 days</span></li>
         </ul>
       </div>
     </div>
@@ -26,47 +25,45 @@ import Base from "../../layouts/Base.astro";
 
   <div class="wrap case-body">
 
-    <!-- The Setting & Governance Architecture -->
     <div class="case-sec">
-      <h2 class="rv">The setting &amp; governance pipeline</h2>
-      <p class="rv prose">A licensed bank is a building with rules you did not write. The regulator sets what the system has to do. The operations department holds the requirements and does not describe them in features. Five vendors, one of them IBM, deliver pieces you depend on and do not manage. Everything you ship has to survive an audit.</p>
+      <h2 class="rv">Building with rules you did not write</h2>
+      <p class="rv prose">A licensed bank is a building with rules you did not write. Everything you ship has to survive an audit at the end of it.</p>
 
       <div class="step-pipeline rv">
         <div class="step-item">
-          <span class="step-num">1</span>
-          <span class="step-title">FSC Regulations &amp; Ops</span>
-          <span class="step-desc">Translating non-technical compliance requirements into strict engineering specifications.</span>
+          <span class="constraint-k">Constraint 1</span>
+          <span class="step-title">The regulator</span>
+          <span class="step-desc">Taiwan's FSC sets what the system has to do. Not how, and not on a timetable that suits you.</span>
         </div>
         <div class="step-item">
-          <span class="step-num">2</span>
-          <span class="step-title">Team Lead &amp; 5 Vendors</span>
-          <span class="step-desc">Leading 9 engineers and vendor governance (IBM, HSM, Telco) via standardized review SOPs.</span>
+          <span class="constraint-k">Constraint 2</span>
+          <span class="step-title">The operations department</span>
+          <span class="step-desc">Operations owns the requirements, and hands them over in the language of regulation rather than features.</span>
         </div>
         <div class="step-item">
-          <span class="step-num">3</span>
-          <span class="step-title">PwC Audit &amp; Production</span>
-          <span class="step-desc">15/15 external security findings resolved; 100% on-time quarterly production releases.</span>
+          <span class="constraint-k">Constraint 3</span>
+          <span class="step-title">Five vendors, one of them IBM</span>
+          <span class="step-desc">They deliver pieces you depend on and do not manage. You carry the deadline either way.</span>
         </div>
       </div>
     </div>
 
-    <!-- Three Pieces of the Work -->
     <div class="case-sec">
       <h2 class="rv">Three critical production deliverables</h2>
       <div class="dcards">
         <div class="dcard spot rv">
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-            <span class="badge-pill success">FSC Accepted</span>
-            <span class="badge-pill">IBM Vendor Delivery</span>
+            <span class="badge-pill success">FSC accepted</span>
+            <span class="badge-pill">IBM vendor delivery</span>
           </div>
           <h3>KYC re-verification with IBM</h3>
-          <p>Owned bank-side delivery for KYC CDD/EDD re-verification. Replaced manual outreach with an automated system moving customers onto 1, 3, or 5-year re-verification cycles by AML risk score. Accepted into production against Taiwan FSC requirements.</p>
+          <p>My main job was KYC re-verification, the check a bank has to repeat on customers it onboarded years ago. When I joined, staff still chased those customers by hand. I built the system that sorts them into 1, 3, or 5-year cycles based on their money-laundering risk score, and it passed Taiwan's FSC review and went live. That &ldquo;accepted into production&rdquo; line sounds boring until you have tried to get there.</p>
         </div>
 
         <div class="dcard spot rv">
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-            <span class="badge-pill">Mobile ID Gateway</span>
-            <span class="badge-pill">4 Payment Modules</span>
+            <span class="badge-pill success">Reused across 4 modules</span>
+            <span class="badge-pill">Mobile ID gateway</span>
           </div>
           <h3>Device binding security gate</h3>
           <p>Engineered the gate that unlocks fund transfers by verifying handset SIM against the registered account number via telco Mobile ID. Built once with clean abstraction, then reused across four core transfer modules rather than reimplemented.</p>
@@ -74,8 +71,8 @@ import Base from "../../layouts/Base.astro";
 
         <div class="dcard spot rv">
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-            <span class="badge-pill success">15 / 15 Closed</span>
-            <span class="badge-pill">IndexedDB Migration</span>
+            <span class="badge-pill success">15/15 PwC findings closed</span>
+            <span class="badge-pill">IndexedDB migration</span>
           </div>
           <h3>PwC external security audit</h3>
           <p>An external PwC assessment flagged sensitive client storage in browser cookies. Migrated storage to encrypted IndexedDB and systematically resolved all 15 audit findings to full sign-off.</p>
@@ -83,7 +80,6 @@ import Base from "../../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Leading Delivery & KPI Impact -->
     <div class="case-sec">
       <h2 class="rv">Leading the delivery</h2>
       <div class="results cols4 rv">
@@ -105,7 +101,6 @@ import Base from "../../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Forward Deployed Alignment -->
     <div class="case-sec">
       <h2 class="rv">Why this matters for Forward Deployed roles</h2>
       <table class="cheat-sheet rv">

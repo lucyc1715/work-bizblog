@@ -5,10 +5,9 @@ import Base from "../layouts/Base.astro";
 <section class="route">
   <div class="wrap section">
     <p class="kicker">About</p>
-    <h1 data-split>Ten years in software, then I built my own&nbsp;thing</h1>
-    <p class="lede prose" style="margin-top:18px">Both halves taught me the same thing: the hard part is working out what someone actually needs, and then answering for what you ship.</p>
+    <h1 data-split>Two industries, one&nbsp;lesson.</h1>
+    <p class="lede prose" style="margin-top:18px">Music taught me how people get paid for their work. Banking taught me how to build the rails. Both taught me to answer for what I ship.</p>
 
-    <!-- Dual-Pillar Comparison Matrix: Bank Tech Lead vs Solo Founder -->
     <div class="dual-matrix rv">
       <div class="dual-col spot">
         <div class="dual-header">
@@ -57,7 +56,7 @@ import Base from "../layouts/Base.astro";
           </div>
           <div class="dual-row">
             <span class="dual-k">Traction</span>
-            <span class="dual-v"><strong>350+ users</strong>, 100+ MAU, paying customers, <strong>$0 ad spend</strong> via organic SEO. 8 releases in 8 months.</span>
+            <span class="dual-v"><strong>350+ users</strong>, 100+ MAU, paying customers, <strong>$0 ad spend</strong> via organic SEO. 13 releases in 8 months.</span>
           </div>
           <div class="dual-row">
             <span class="dual-k">Core Lesson</span>
@@ -67,13 +66,11 @@ import Base from "../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Synthesis Banner -->
-    <div class="dual-synthesis rv">
-      <div class="syn-icon" aria-hidden="true">&rarr;</div>
-      <p><strong>The Forward Deployed Engineer Advantage:</strong> Combining enterprise compliance rigor with startup-speed execution &mdash; translating non-technical requirements into reliable, production software that survives audit and solves real customer pain.</p>
-    </div>
+    <blockquote class="pullquote rv">
+      <span class="pq-lead">Why this mix matters</span>
+      <p>I learned rigor inside a licensed bank, and I learned speed by shipping my own product alone. So I can sit with your customer, figure out what they actually need, and turn it into software that passes an audit.</p>
+    </blockquote>
 
-    <!-- Recruiter Fast-Pass Table -->
     <div class="case-sec" style="margin-top:36px">
       <h2 class="rv">At a glance for recruiters &amp; hiring teams</h2>
       <table class="cheat-sheet rv">
@@ -114,7 +111,6 @@ import Base from "../layouts/Base.astro";
       </table>
     </div>
 
-    <!-- Vertical Timeline (Preserved) -->
     <div class="case-sec" style="margin-top:40px">
       <h2 class="rv">Where I have been</h2>
       <div class="vtl">
@@ -137,7 +133,7 @@ import Base from "../layouts/Base.astro";
             <div class="vtl-body">
               <p class="vtl-role">Frontend Engineer</p>
               <p class="vtl-org">FintechLife, Taipei</p>
-              <p class="vtl-note">PCI DSS payload encryption, an AI-assisted development workflow, and the customer-facing developer portal.</p>
+              <p class="vtl-note">PCI DSS payload encryption, a two-product monorepo consolidation, an AI-assisted development workflow, and the customer-facing developer portal.</p>
             </div>
           </li>
           <li class="vtl-item">
@@ -150,7 +146,7 @@ import Base from "../layouts/Base.astro";
               <p class="vtl-note">Spent the last month of it working in London as a frontend engineer on a live gaming platform.</p>
             </div>
           </li>
-          <li class="vtl-item">
+          <li class="vtl-item bank">
             <span class="vtl-year">2021<small>to 2024</small></span>
             <span class="vtl-dot" aria-hidden="true"></span>
             <span></span>
@@ -221,25 +217,30 @@ import Base from "../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Beyond code: Concept Transfer Diagram -->
     <div class="case-sec">
       <h2 class="rv">Beyond code: Cross-domain transfer</h2>
       <p class="rv prose">In the middle of an engineering career I completed a master's in music industry studies at the University of Liverpool. Studying how work reaches audiences, who owns rights, and who gets paid turned out to be the exact conceptual foundation for software payment rails and entitlement architectures.</p>
       
-      <div class="concept-bridge rv">
-        <div class="bridge-node">
-          <strong>Music Industry (Liverpool MA)</strong>
-          <p style="margin:4px 0 0;font-size:.78rem;color:var(--muted)">Copyright splits, mechanical licensing, sync fees, royalty accounting</p>
+      <div class="xwalk rv">
+        <div class="xwalk-row xwalk-head">
+          <span>Music industry</span>
+          <span></span>
+          <span>Fintech architecture</span>
         </div>
-        <div class="bridge-arrow">&rarr;</div>
-        <div class="bridge-node">
-          <strong>Transferable Concept</strong>
-          <p style="margin:4px 0 0;font-size:.78rem;color:var(--muted)">Multi-party rights verification, distribution pipelines &amp; governance</p>
+        <div class="xwalk-row">
+          <b>Copyright splits</b>
+          <span class="xwalk-arrow" aria-hidden="true"></span>
+          <b>Multi-party rights verification</b>
         </div>
-        <div class="bridge-arrow">&rarr;</div>
-        <div class="bridge-node">
-          <strong>Fintech Software Architecture</strong>
-          <p style="margin:4px 0 0;font-size:.78rem;color:var(--muted)">Stripe/Apple/Google unified entitlement schema &amp; KYC compliance</p>
+        <div class="xwalk-row">
+          <b>Mechanical licensing</b>
+          <span class="xwalk-arrow" aria-hidden="true"></span>
+          <b>Distribution pipelines</b>
+        </div>
+        <div class="xwalk-row">
+          <b>Royalty accounting</b>
+          <span class="xwalk-arrow" aria-hidden="true"></span>
+          <b>Stripe, Apple and Google entitlement schema</b>
         </div>
       </div>
 
@@ -259,20 +260,19 @@ import Base from "../layouts/Base.astro";
       </div>
     </div>
 
-    <!-- Live Status -->
     <div class="case-sec">
       <h2 class="rv">Right now</h2>
       <div class="status-radar rv">
         <div class="radar-card">
-          <span class="r-tag">Shipping Soon</span>
+          <span class="r-tag"><span class="r-dot soon" aria-hidden="true"></span>Shipping Soon</span>
           <p class="r-val">Course Kit personal plan, mid September 2026.</p>
         </div>
         <div class="radar-card">
-          <span class="r-tag">Current Full-time</span>
+          <span class="r-tag"><span class="r-dot live" aria-hidden="true"></span>Current Full-time</span>
           <p class="r-val">Frontend engineering at FintechLife, Taipei &middot; Available in <span data-site="notice">4 weeks</span>.</p>
         </div>
         <div class="radar-card">
-          <span class="r-tag">Conversations</span>
+          <span class="r-tag"><span class="r-dot live" aria-hidden="true"></span>Conversations</span>
           <p class="r-val">Talking to teams in <span data-site="citiesAnd">Dublin, Amsterdam and Tallinn</span> about Forward Deployed Engineer roles.</p>
         </div>
       </div>
