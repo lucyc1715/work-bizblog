@@ -8,7 +8,7 @@
      through a [data-site="key"] slot. ------------------------------------- */
   var CITIES = ["Dublin", "Amsterdam", "Tallinn"];
   var ROLE   = "Forward Deployed Engineer";
-  var NOTICE = "8 to 12 weeks";
+  var NOTICE = "4 weeks";
 
   function join(list, last) {
     if (list.length < 2) return list[0] || "";

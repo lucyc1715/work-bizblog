@@ -28,6 +28,22 @@ deleted (8c6eaaf).** Written years ago and republished as is; it contradicted
 the CV on degree, job title and years of experience. The page and its card on
 the writing index are gone. Republishing it means rewriting it first.
 
+## Open
+
+**`npm run check` cannot run — `@astrojs/check` is not installed.** AGENTS.md
+lists it as the one gate that has to pass before a push, but the package is
+not in `package.json` and running the script only offers to install it.
+Installing needs Lucy's say-so, since the project is meant to depend on astro
+alone. Until that is settled, `npm run build` is the only gate that actually
+runs.
+
+**Wide tables scroll sideways on phones and the last column is cut off.**
+`.cheat-sheet` and `.decision-table` become their own scroll container below
+700px (`site.css`, responsive block), which stops them pushing the whole page
+sideways, but there is no visual hint that the row continues past the edge.
+Stacking each row into a card is the better mobile treatment; it was left out
+because it changes how the tables read, not just how they fit.
+
 ## Known, deliberate
 
 - Product screenshots carry a "sample data" note. That is intentional.

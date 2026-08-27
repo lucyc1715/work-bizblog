@@ -572,7 +572,18 @@ body.pointer::after{opacity:1}
 .dcard{
   position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);
   background:var(--bg-raise);padding:26px 24px;transition:border-color .2s ease,transform .2s ease;
+  display:flex;flex-direction:column;
 }
+/* cards in a row end on the same line even when the bodies above differ in height */
+.dcard .links-line{margin-top:auto;padding-top:14px}
+/* rowsync: cards whose five internal rows line up across the row, so a kicker that
+   needs two lines in one card cannot push that card's title below its neighbours */
+.dcards.rowsync{grid-template-rows:auto auto auto 1fr auto auto;row-gap:0}
+.dcards.rowsync > .dcard{display:grid;grid-template-rows:subgrid;grid-row:span 6;row-gap:0}
+/* the head is itself two of those rows, so the kicker and the badge each line up */
+.dcards.rowsync .dcard-head{display:grid;grid-template-rows:subgrid;grid-row:span 2;justify-items:start}
+.dcard-head .kicker{margin:0}
+.dcard-head .badge-pill{margin-bottom:10px}
 .dcard::before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;
   background:radial-gradient(320px circle at var(--cx,50%) var(--cy,50%), var(--glow), transparent 70%);
@@ -681,7 +692,7 @@ body.pointer::after{opacity:1}
 /* study rows read differently from jobs; one employer with two roles shows the promotion */
 .vtl-tag{
   display:block;margin-top:6px;font-family:var(--body);font-size:.62rem;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap;
 }
 .vtl-item.edu .vtl-dot{border-style:dashed;border-color:var(--rail-past);background:var(--bg)}
 .vtl-item.edu .vtl-role{font-weight:500;font-style:italic}
@@ -728,7 +739,7 @@ body.pointer::after{opacity:1}
   background:var(--bg-raise);border:1px solid var(--line);border-radius:5px;padding:1px 5px;
 }
 /* cards that are links: keep the card look, drop the anchor look */
-a.dcard{color:inherit;display:block}
+a.dcard{color:inherit;display:flex}
 a.dcard h3{color:var(--ink)}
 
 /* marquee */
@@ -760,7 +771,7 @@ a.dcard h3{color:var(--ink)}
   background:var(--bg-raise);border:1px solid var(--line);
   border-radius:var(--radius);box-shadow:var(--shadow);
 }
-.metric-strip .m-cell{display:flex;flex-direction:column;gap:4px}
+.metric-strip .m-cell{display:flex;flex-direction:column;justify-content:space-between;gap:4px}
 .metric-strip .m-num{
   font-family:var(--display);font-size:clamp(1.7rem,2.4vw,2.2rem);
   font-weight:700;color:var(--accent-ink);line-height:1.1;letter-spacing:-.02em;
@@ -779,12 +790,12 @@ a.dcard h3{color:var(--ink)}
   display:flex;flex-direction:column;gap:18px;
 }
 .dual-col:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:color-mix(in srgb, var(--accent) 45%, transparent)}
-.dual-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.dual-header{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px}
 .dual-title{font-family:var(--display);font-size:1.22rem;font-weight:700;margin:0;color:var(--ink)}
 .dual-period{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .dual-badge{
   display:inline-flex;align-items:center;gap:6px;
-  padding:4px 10px;border-radius:999px;font-size:.78rem;font-weight:700;
+  padding:4px 10px;border-radius:999px;font-size:.78rem;font-weight:700;white-space:nowrap;
   background:var(--accent-soft);color:var(--accent-ink);border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);
 }
 .dual-rows{display:flex;flex-direction:column;gap:14px;flex:1}
@@ -827,7 +838,7 @@ a.dcard h3{color:var(--ink)}
 .skill-chips{display:flex;flex-wrap:wrap;gap:7px}
 .skill-chip{
   display:inline-flex;align-items:center;gap:5px;
-  padding:5px 11px;border-radius:8px;font-size:.84rem;font-weight:500;
+  padding:5px 11px;border-radius:8px;font-size:.84rem;font-weight:500;white-space:nowrap;
   background:var(--bg);border:1px solid var(--line-strong);color:var(--ink);
   transition:border-color .16s ease, transform .16s ease, background .16s ease;
 }
@@ -838,10 +849,18 @@ a.dcard h3{color:var(--ink)}
   color:var(--accent-ink);
 }
 
+/* pill icons: stroked so they take the pill's own colour in either theme,
+   unlike an emoji glyph which keeps its own palette */
+.pill-i{
+  width:1em;height:1em;flex:0 0 auto;display:block;
+  fill:none;stroke:currentColor;stroke-width:1.4;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
 /* Feature & Role Pills */
 .badge-pill{
   display:inline-flex;align-items:center;gap:6px;padding:3px 9px;
-  border-radius:999px;font-size:.76rem;font-weight:700;
+  border-radius:999px;font-size:.76rem;font-weight:700;white-space:nowrap;
   background:var(--accent-soft);color:var(--accent-ink);border:1px solid color-mix(in srgb, var(--accent) 26%, transparent);
 }
 .badge-pill.success{background:rgba(46,125,50,.1);color:#2E7D32;border-color:rgba(46,125,50,.24)}
@@ -849,10 +868,10 @@ a.dcard h3{color:var(--ink)}
 :root[data-theme="dark"] .badge-pill.success{background:rgba(74,222,128,.14);color:#4ADE80;border-color:rgba(74,222,128,.3)}
 :root[data-theme="dark"] .badge-pill.warning{background:rgba(251,146,60,.14);color:#FB923C;border-color:rgba(251,146,60,.3)}
 
-.feature-pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.feature-pills{display:flex;flex-wrap:wrap;align-content:flex-start;align-items:flex-start;gap:6px;margin:12px 0}
 .feature-pill{
   display:inline-flex;align-items:center;gap:5px;
-  padding:3px 9px;border-radius:6px;font-size:.78rem;font-weight:600;
+  padding:3px 9px;border-radius:6px;font-size:.78rem;font-weight:600;white-space:nowrap;
   background:var(--bg-raise);border:1px solid var(--line);color:var(--ink);
 }
 
@@ -874,7 +893,7 @@ a.dcard h3{color:var(--ink)}
 }
 .ba-card.before{border-color:rgba(239,68,68,.3);background:color-mix(in srgb, #EF4444 6%, var(--bg-raise))}
 .ba-card.after{border-color:rgba(34,197,94,.3);background:color-mix(in srgb, #22C55E 6%, var(--bg-raise))}
-.ba-tag{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.ba-tag{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 .ba-card.before .ba-tag{color:#DC2626}
 .ba-card.after .ba-tag{color:#16A34A}
 :root[data-theme="dark"] .ba-card.before .ba-tag{color:#F87171}
@@ -933,7 +952,7 @@ a.dcard h3{color:var(--ink)}
   background:var(--bg-raise);border:1px solid var(--line);border-radius:14px;
   padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;
 }
-.radar-card .r-tag{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink)}
+.radar-card .r-tag{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink);white-space:nowrap}
 .radar-card .r-val{font-size:.94rem;color:var(--ink);line-height:1.4;margin:0}
 
 /* routes */
@@ -963,6 +982,10 @@ a.dcard h3{color:var(--ink)}
   .case-hero-text{padding:44px 0 12px}
   .case-hero-text .lede{max-width:none}
   .readers,.dcards,.dcards.cols2,.railgrid,.sec-split,.dual-matrix,.skill-matrix,.metric-strip,.step-pipeline,.mini-grid,.status-radar,.before-after-grid{grid-template-columns:1fr}
+  .dcards.rowsync{grid-template-rows:none;row-gap:20px}
+  .dcards.rowsync > .dcard{display:flex;grid-row:auto}
+  .dcards.rowsync .dcard-head{display:block;grid-row:auto}
+  .dcard-head .kicker{margin:0 0 8px}
   .dual-row{grid-template-columns:90px 1fr}
   .concept-bridge{flex-direction:column;gap:8px}
   .bridge-arrow{transform:rotate(90deg)}
@@ -979,6 +1002,11 @@ a.dcard h3{color:var(--ink)}
   .nav-links{width:100%;order:3;gap:16px;padding-bottom:2px}
   body{font-size:16px}
   .hero-text h1{font-size:1.16rem}
+}
+@media (max-width:700px){
+  /* the pills inside these tables must not wrap, so let the table scroll rather than the page */
+  .cheat-sheet,.decision-table{display:block;overflow-x:auto;overflow-y:hidden;white-space:normal}
+  .cheat-sheet th,.cheat-sheet td,.decision-table th,.decision-table td{padding:12px 14px}
 }
 @media (max-width:460px){
   .nums{grid-template-columns:1fr;gap:26px}
