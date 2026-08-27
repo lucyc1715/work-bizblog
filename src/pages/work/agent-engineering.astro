@@ -1,0 +1,208 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+<Base title="Agent Engineering">
+<section class="route">
+  <div class="case-hero">
+    <span class="hero-glow g1" aria-hidden="true"></span>
+    <span class="case-hero-floor" aria-hidden="true"></span>
+    <div class="case-hero-text">
+      <p class="kicker">Agent Engineering</p>
+      <h1 data-split>I wrote the rules my agents work under</h1>
+      <p class="lede">Course Kit shipped thirteen releases in eight months across three platforms, built by one person. This is the system underneath that: a written doctrine, a routing ladder with a ceiling, and a set of hooks the model does not get a vote on.</p>
+      <div class="btn-row hero-cta">
+        <a class="btn primary" href="/work/coursekit">The product this came from</a>
+        <a class="btn" href="/cv">CV</a>
+      </div>
+    </div>
+    <div class="case-hero-media">
+      <div class="stagewrap">
+        <figure class="railfig rv">
+          <svg viewBox="0 0 460 200" role="img" aria-label="An escalation ladder: haiku gets one attempt, sonnet two, opus two, then the work stops and returns to a human">
+            <path class="flowline draw" style="--len:340" d="M62 96 H384"/>
+            <circle class="flownode" cx="60" cy="96" r="9"/>
+            <circle class="flownode" cx="168" cy="96" r="9"/>
+            <circle class="flownode" cx="276" cy="96" r="9"/>
+            <circle class="flownode hub" cx="398" cy="96" r="15"/>
+            <text class="raillabel" x="60" y="70" text-anchor="middle">haiku</text>
+            <text class="raillabel" x="168" y="70" text-anchor="middle">sonnet</text>
+            <text class="raillabel" x="276" y="70" text-anchor="middle">opus</text>
+            <text class="raillabel strong" x="398" y="64" text-anchor="middle">human</text>
+            <text class="raillabel sub" x="114" y="128" text-anchor="middle">1 try</text>
+            <text class="raillabel sub" x="222" y="128" text-anchor="middle">2 tries</text>
+            <text class="raillabel sub" x="330" y="128" text-anchor="middle">2 tries</text>
+            <text class="raillabel sub" x="398" y="134" text-anchor="middle">stop</text>
+          </svg>
+          <figcaption class="figcap">Five attempts, then a person. Always.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap case-body">
+
+    <div class="metric-strip rv">
+      <div class="m-cell"><span class="m-num">617</span><span class="m-label">Lines of doctrine</span></div>
+      <div class="m-cell"><span class="m-num">5</span><span class="m-label">Enforcement hooks</span></div>
+      <div class="m-cell"><span class="m-num">18</span><span class="m-label">Skills in regular use</span></div>
+      <div class="m-cell"><span class="m-num">5</span><span class="m-label">Attempts before a human</span></div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">The problem</h2>
+      <p class="rv prose">One person cannot review one person's work.</p>
+      <p class="rv prose">Agents made me faster in the first week and unreliable in the third. A subagent reported a change complete and gave me a file and a line number. The line number did not exist. It was not lying. It had no way to check, and neither did I, because I was the one who had asked for it.</p>
+      <p class="rv prose">The bottleneck was never generation. It was trust.</p>
+
+      <div class="before-after-grid rv" style="margin-top:16px">
+        <div class="ba-card before">
+          <span class="ba-tag">&cross; Before (Prompt and hope)</span>
+          <p style="margin:0">Rules restated in every prompt &middot; Agents grading their own work &middot; Retries with no ceiling.</p>
+        </div>
+        <div class="ba-card after">
+          <span class="ba-tag">&check; After (Doctrine and hooks)</span>
+          <p style="margin:0">Rules written once, in a file &middot; Blind verification by a fresh agent &middot; Five attempts, then a person.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">What I built</h2>
+      <p class="rv prose">A doctrine, not a prompt library. Six documents that answer the questions I kept re-deciding: who does this work, on which model, how do we know it is finished, and when do we stop and ask a human. Written for a model to read, with a worked right answer and a worked wrong answer under every rule.</p>
+      <p class="rv prose">Around it sit eighteen skills in regular use, five shell hooks that enforce what a prompt can only request, and an operational memory corpus of single-fact documents with an index, an archive tier, and a dedup rule on write.</p>
+
+      <div class="step-pipeline rv">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <span class="step-title">1. Decide once, in a file</span>
+          <span class="step-desc">Routing, acceptance and escalation live in six documents, not in the prompt of the day.</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <span class="step-title">2. Verify blind</span>
+          <span class="step-desc">A fresh agent receives the acceptance criteria and the artifact path, never the story of how it was made.</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <span class="step-title">3. Enforce in a hook</span>
+          <span class="step-desc">Anything that must not happen is intercepted at the tool call, where the model has no vote.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Decisions</h2>
+      <div class="dcards cols2">
+        <div class="dcard spot rv">
+          <span class="badge-pill" style="margin-bottom:8px">Verification</span>
+          <h3>The writer never grades the work</h3>
+          <p>Verification goes to a fresh agent that gets the acceptance criteria and the artifact path, and nothing else. A verifier told how the work was done will agree with it. File claims resolve to a read-back, code claims to the project's own check command with its raw output attached.</p>
+        </div>
+        <div class="dcard spot rv">
+          <span class="badge-pill" style="margin-bottom:8px">Routing</span>
+          <h3>Escalation with a ceiling</h3>
+          <p>Mechanical work to the cheap model, implementation to the middle tier, adjudication to the strongest. One retry at the bottom, two in the middle, two at the top, then it stops and hands back to me. Escalation without a ceiling is an expensive infinite loop.</p>
+        </div>
+        <div class="dcard spot rv">
+          <span class="badge-pill" style="margin-bottom:8px">Enforcement</span>
+          <h3>Prompts request, hooks enforce</h3>
+          <p>Destructive git commands, banned punctuation in user-facing copy, output paths that must not be written to. None of those belong in a prompt. They live in shell hooks that return an error the agent can act on, and a hard stop for anything irreversible.</p>
+        </div>
+        <div class="dcard spot rv">
+          <span class="badge-pill" style="margin-bottom:8px">Honesty</span>
+          <h3>Taste is routed to a person by policy</h3>
+          <p>Decomposition and review raise execution quality. They do nothing for "is this copy any good". Those questions come back to me as two or three concrete options with their costs. The model is not permitted to sound confident about a question with no verifiable answer.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-sec railwrap" id="railSec">
+      <div class="inner railgrid">
+        <div class="railtext">
+          <h2 class="rv">The interesting engineering</h2>
+          <p class="rv">Three payment rails taught me the pattern. Agents made me apply it to myself.</p>
+          <p class="rv">Course Kit normalises Apple, Google and Stripe into one entitlement schema, and a conflict resolves to the highest tier rather than the last write. Agent output has the same shape of problem: several sources, different confidence, and a wrong default. So the same rule applies. A claim resolves to the strongest evidence, not to the most recent speaker.</p>
+          <p class="rv">In practice a file claim resolves to a read-back, a code claim resolves to the project's own check command with its raw output attached, and anything touching schema, payments or permissions resolves to a second independent opinion before it ships.</p>
+        </div>
+        <figure class="railfig rv">
+          <svg viewBox="-92 0 512 272" role="img" aria-label="File claims, code claims and risk claims each resolve through their own form of evidence into one accepted result">
+            <path class="flowline draw" style="--len:900" d="M128 44 C214 44 232 136 296 136 M128 136 H296 M128 228 C214 228 232 136 296 136"/>
+            <circle class="flownode" cx="119" cy="44" r="9"/>
+            <circle class="flownode" cx="119" cy="136" r="9"/>
+            <circle class="flownode" cx="119" cy="228" r="9"/>
+            <circle class="flownode hub" cx="310" cy="136" r="15"/>
+            <text class="raillabel" x="101" y="49" text-anchor="end">file claim</text>
+            <text class="raillabel" x="101" y="141" text-anchor="end">code claim</text>
+            <text class="raillabel" x="101" y="233" text-anchor="end">risk claim</text>
+            <text class="raillabel strong" x="310" y="180" text-anchor="middle">evidence</text>
+            <text class="raillabel sub" x="310" y="198" text-anchor="middle">not assertion</text>
+          </svg>
+          <figcaption class="figcap">Three kinds of claim, one bar.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Results</h2>
+      <div class="results rv">
+        <div class="rcell"><span class="n"><span class="cnt" data-to="13">13</span></span><span class="l">releases</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="8">8</span></span><span class="l">months</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="3">3</span></span><span class="l">platforms</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="1">1</span></span><span class="l">person</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="136">136</span></span><span class="l">memory docs</span></div>
+        <div class="rcell"><span class="n"><span class="cnt" data-to="5">5</span></span><span class="l">attempt ceiling</span></div>
+      </div>
+      <p class="rv" style="margin-top:14px">The first four numbers are the point. The rest is what made them survivable: an operational memory corpus in the largest project, and a hard limit on how long any agent is allowed to keep trying before the work comes back to me.</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">A rule I had to correct</h2>
+      <p class="rv prose">I wrote this rule, shipped it, and then measured what it actually cost. It was wrong in a particular direction: it optimised for looking disciplined rather than for the thing it was supposed to defend.</p>
+
+      <table class="decision-table rv">
+        <thead>
+          <tr>
+            <th>Rule</th>
+            <th>What I shipped first</th>
+            <th>What it cost</th>
+            <th>What I changed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Delegation threshold</strong></td>
+            <td>Any read over 300 lines goes to a subagent, to keep the main context clean.</td>
+            <td><span class="badge-pill warning">Ritual delegation</span> Eighty-line reads were being dispatched at roughly three to four times the token cost of reading them directly.</td>
+            <td>Kept the threshold, wrote the exception into the rule, and named the real target: a localisation directory of 35,000 lines that costs 40k tokens to read whole. A guideline that cannot be violated is a bug.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">What this is not</h2>
+      <p class="rv prose">There is no model in front of my users. Course Kit ships payment rails and sync, not inference. Everything above is production-side: the system that builds and ships the product, and the rules that make its output safe to trust.</p>
+      <p class="rv prose">If you are hiring for model-facing product work, that is the gap. I would rather name it than have you find it.</p>
+    </div>
+
+    <div class="case-sec">
+      <h2 class="rv">Stack</h2>
+      <div class="marquee">
+        <div class="mtrack">
+          <div class="mgroup">
+            <span class="tag">Claude Code</span><span class="tag">MCP</span><span class="tag">Subagent orchestration</span><span class="tag">Model routing</span><span class="tag">Shell hooks</span><span class="tag">Git worktree isolation</span><span class="tag">Structured output</span><span class="tag">Playwright regression</span><span class="tag">Firebase</span>
+          </div>
+          <div class="mgroup" aria-hidden="true">
+            <span class="tag">Claude Code</span><span class="tag">MCP</span><span class="tag">Subagent orchestration</span><span class="tag">Model routing</span><span class="tag">Shell hooks</span><span class="tag">Git worktree isolation</span><span class="tag">Structured output</span><span class="tag">Playwright regression</span><span class="tag">Firebase</span>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row" style="justify-content:flex-start">
+        <a class="btn primary" href="/work/coursekit">Course Kit case study</a>
+        <a class="btn" href="mailto:lucychen.biz@gmail.com">Email me</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+</Base>
