@@ -188,10 +188,11 @@ git status/log/diff、shell 基本操作、`git add`／`git commit`（範圍正�
 `git pull --rebase`、寫 `NOTES.md`。
 
 **先問再做**：裝套件、加 Astro integration、`git push`、刪檔刪目錄、
-改 `astro.config.mjs`、改 OG 圖或 meta 結構、改 CI/CD、改任何已上線的文案。
+改 `astro.config.mjs`、改 OG 圖或 meta 結構、改 CI/CD、改任何已上線的文案、
+動 `.gitignore`（用戶明示才改，不准自己判斷「這個應該要忽略」就加）。
 
 **🚫 永遠不准**：commit `dist/` 或 `.astro/`、手改 `package-lock.json`、
-commit secrets、簡體中文、擅自加依賴、動 `.gitignore`、
+commit secrets、簡體中文、擅自加依賴、
 把工作筆記寫成頁面裡的 HTML 註解。
 
 ## Quick Reference
