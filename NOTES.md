@@ -62,6 +62,13 @@ sideways, but there is no visual hint that the row continues past the edge.
 Stacking each row into a card is the better mobile treatment; it was left out
 because it changes how the tables read, not just how they fit.
 
+**"Underneath the other three" no longer matches its position.** The Agent
+Engineering card's kicker (work index and home) was written when that card came
+first. Since 2026-09-16 the order is Course Kit, Vibe Code Home, Agent
+Engineering, Rakuten, so the card now sits third with only the bank card after
+it, and the bank card is not one of the "three" it supports. Needs Lucy's call
+on new wording.
+
 ## Known, deliberate
 
 - Product screenshots carry a "sample data" note. That is intentional.
